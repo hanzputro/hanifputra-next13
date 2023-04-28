@@ -29,7 +29,7 @@ const Header = () => {
             priority
           />
           <p
-            className={`${antonio.className} bg-[#FFEE00] text-white text-[18px] leading-[1.1em] tracking-[2px] p-[2px] ml-[10px]`}
+            className={`${antonio.className} bg-[#f9f970] text-white text-[18px] leading-[1.1em] tracking-[2px] p-[2px] ml-[10px]`}
           >
             <span className="block">HANIF</span> PUTRA
           </p>
