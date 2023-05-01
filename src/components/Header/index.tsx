@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Antonio, Inter } from "next/font/google";
+import { motion } from "framer-motion";
 
 const antonio = Antonio({
   weight: ["100"],
@@ -14,8 +15,17 @@ const inter = Inter({
 
 const Header = () => {
   return (
-    <header className="fixed flex justify-between items-center w-full z-10 h-[90px] px-8">
-      <li className="flex items-center space-x-4">
+    <motion.header
+      className="fixed flex justify-between items-center w-full z-10 h-[85px] px-8 backdrop-blur-sm bg-white/30 
+    before:content-[''] before:absolute before:inset-0 before:w-[100%] before:h-[95px] before:backdrop-blur-sm before:blur-sm"
+      initial={{ y: -10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 0.6,
+        ease: "easeInOut",
+      }}
+    >
+      <li className="relative flex items-center space-x-4">
         <a
           className="relative flex items-center
           before:content-[''] before:absolute before:inset-0 before:w-[1px] before:h-[70%] before:my-auto before:left-[68px] before:bg-[#FFEE00]"
@@ -29,7 +39,7 @@ const Header = () => {
             priority
           />
           <p
-            className={`${antonio.className} bg-[#FFEE00] text-white text-[18px] leading-[1.1em] tracking-[2px] p-[2px] ml-[10px]`}
+            className={`${antonio.className} bg-[#f9f970] text-white text-[16px] leading-[1.1em] tracking-[2px] p-[3px] ml-[10px]`}
           >
             <span className="block">HANIF</span> PUTRA
           </p>
@@ -37,14 +47,14 @@ const Header = () => {
       </li>
 
       <li
-        className={`${inter.className} flex items-center space-x-4 text-[#111111] text-[14px]`}
+        className={`${inter.className} relative flex items-center space-x-4 text-[#111111] text-[14px]`}
       >
         <a href="#work">Work</a>
         <a href="#get-in-touch">
           <p>Get In Touch</p>
         </a>
       </li>
-    </header>
+    </motion.header>
   );
 };
 
