@@ -23,6 +23,7 @@ const Header = () => {
       transition={{
         duration: 0.6,
         ease: "easeInOut",
+        delay: 0.6,
       }}
     >
       <li className="relative flex items-center space-x-4">
