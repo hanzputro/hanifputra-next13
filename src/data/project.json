@@ -1,0 +1,88 @@
+{
+  "project": [
+    {
+      "title": "Hino Jabotabek",
+      "tags": [{ "name": "Designer" }, { "name": "Fullstack Engineer" }],
+      "description": "website that sells hino cars",
+      "image": "hino-jabotabek.jpg",
+      "thumbnail": "thumb/hino-jabotabek.jpg"
+    },
+    {
+      "title": "Flashads Portal",
+      "tags": [{ "name": "Frontend Engineer" }],
+      "description": "Website that showing ads from flashads",
+      "image": "flashads-portal.jpg",
+      "thumbnail": "thumb/flashads-portal.jpg"
+    },
+    {
+      "title": "Flashads",
+      "tags": [{ "name": "Frontend Engineer" }],
+      "description": "Website that introduce their personal company",
+      "image": "flashads-compro.jpg",
+      "thumbnail": "thumb/flashads-compro.jpg"
+    },
+    {
+      "title": "JMS Logo",
+      "tags": [{ "name": "Designer" }],
+      "description": "Logo for health company",
+      "image": "jms.jpg",
+      "thumbnail": "thumb/jms.jpg"
+    },
+    {
+      "title": "Qpocket",
+      "tags": [{ "name": "Frontend Engineer" }],
+      "description": "website that sells qpocket application",
+      "image": "qpocket.jpg",
+      "thumbnail": "thumb/qpocket.jpg"
+    },
+    {
+      "title": "Xfloor",
+      "tags": [{ "name": "Designer" }, { "name": "Frontend Engineer" }],
+      "description": "Website that sells xfloor application",
+      "image": "xfloor.jpg",
+      "thumbnail": "thumb/xfloor.jpg"
+    },
+    {
+      "title": "Anjar Tanjung Profile",
+      "tags": [{ "name": "Frontend Engineer" }],
+      "description": "Website that introduce anjar tanjung profile",
+      "image": "anjartanjung.jpg",
+      "thumbnail": "thumb/anjartanjung.jpg"
+    },
+    {
+      "title": "UIN University",
+      "tags": [{ "name": "Frontend Engineer" }],
+      "description": "Website that introduce UIN University",
+      "image": "uin.jpg",
+      "thumbnail": "thumb/uin.jpg"
+    },
+    {
+      "title": "Sanica Logo",
+      "tags": [{ "name": "Designer" }],
+      "description": "Logo for cake company",
+      "image": "sanica.jpg",
+      "thumbnail": "thumb/sanica.jpg"
+    },
+    {
+      "title": "AGPI Logo",
+      "tags": [{ "name": "Designer" }],
+      "description": "Logo for Company",
+      "image": "agpi.jpg",
+      "thumbnail": "thumb/agpi.jpg"
+    },
+    {
+      "title": "Bro Warkop Logo",
+      "tags": [{ "name": "Designer" }],
+      "description": "Logo for coffee shop",
+      "image": "bro-warkop.jpg",
+      "thumbnail": "thumb/bro-warkop.jpg"
+    },
+    {
+      "title": "AGS Logo",
+      "tags": [{ "name": "Designer" }],
+      "description": "Logo for Company",
+      "image": "ags.jpg",
+      "thumbnail": "thumb/ags.jpg"
+    }
+  ]
+}
