@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Section/Hero";
 import Project, { ProjectDetailType } from "@/components/Section/Project";
+import Contact from "@/components/Section/Contact";
 import fsPromises from "fs/promises";
 import path from "path";
 
@@ -15,6 +16,7 @@ export default function Home(props: HomeProps) {
       <main className="flex min-h-screen flex-col items-center justify-between">
         <Hero />
         <Project project={props.project} />
+        <Contact />
       </main>
     </>
   );
