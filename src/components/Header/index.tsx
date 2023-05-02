@@ -23,9 +23,10 @@ const Header = () => {
       transition={{
         duration: 0.6,
         ease: "easeInOut",
+        delay: 0.6,
       }}
     >
-      <li className="relative flex items-center space-x-4">
+      <div className="relative flex items-center space-x-4">
         <a
           className="relative flex items-center
           before:content-[''] before:absolute before:inset-0 before:w-[1px] before:h-[70%] before:my-auto before:left-[68px] before:bg-[#FFEE00]"
@@ -44,16 +45,21 @@ const Header = () => {
             <span className="block">HANIF</span> PUTRA
           </p>
         </a>
-      </li>
+      </div>
 
-      <li
+      <ul
         className={`${inter.className} relative flex items-center space-x-4 text-[#111111] text-[14px]`}
       >
-        <a href="#work">Work</a>
-        <a href="#get-in-touch">
-          <p>Get In Touch</p>
-        </a>
-      </li>
+        <li>
+          <a href="#work">Me</a>
+        </li>
+        <li>
+          <a href="#work">Works</a>
+        </li>
+        <li>
+          <a href="#get-in-touch">Get In Touch</a>
+        </li>
+      </ul>
     </motion.header>
   );
 };
