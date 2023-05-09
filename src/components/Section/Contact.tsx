@@ -61,8 +61,9 @@ const Contact = ({ socialMedia }: ContactProps) => {
       >
         <div className="p-6 w-1/2">
           <p>
-            Let's discuss with me become even greater at what you do. so excited
-            to hear from you and let's start something special together.
+            Let&apos;s discuss with me become even greater at what you do. so
+            excited to hear from you and let&apos;s start something special
+            together.
             <span className="block">feel free to contact me ;)</span>
             <span className="block mt-1">
               <strong>Depok</strong>, <strong>Indonesia</strong>
@@ -71,7 +72,7 @@ const Contact = ({ socialMedia }: ContactProps) => {
           <ul className="flex items-center space-x-5 mt-5">
             {socialMedia?.map((item) => {
               return (
-                <li>
+                <li key={item.title}>
                   <a href={item.link} target="_blank">
                     <Image
                       className="relative hover:scale-[1.05] duration-100 cursor-pointer"
