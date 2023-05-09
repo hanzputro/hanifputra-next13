@@ -16,14 +16,13 @@ const inter = Inter({
 const Header = () => {
   return (
     <motion.header
-      className="fixed flex justify-between items-center w-full z-10 h-[85px] px-8 backdrop-blur-sm bg-white/30 
+      className="fixed flex justify-between items-center w-full z-[100] h-[85px] px-8 backdrop-blur-sm bg-white/30 
     before:content-[''] before:absolute before:inset-0 before:w-[100%] before:h-[95px] before:backdrop-blur-sm before:blur-sm"
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
         duration: 0.6,
         ease: "easeInOut",
-        delay: 0.6,
       }}
     >
       <div className="relative flex items-center space-x-4">
