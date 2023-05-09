@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { Andada_Pro } from "next/font/google";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -10,11 +9,19 @@ const andadaPro = Andada_Pro({
 });
 
 export interface ProjectDetailType {
-  title: String;
+  title: string;
   tags: [];
-  description: String;
-  image: String;
-  thumbnail: String;
+  description: string;
+  image: string;
+  imageBlur: string;
+  thumbnail: string;
+  thumbnailBlur: string;
+  width: number;
+  height: number;
+}
+
+export interface ImageListCustomType {
+  blur: string;
 }
 
 interface ProjectProps {
@@ -22,8 +29,23 @@ interface ProjectProps {
 }
 
 const Project = ({ project }: ProjectProps) => {
+  const [isDetailVisible, setDetailVisible] = useState(false);
+  const [detailSelected, setDetailSelected] = useState(0);
+  const projectRef = useRef<any>(null);
+
+  const handleShowDetail = (id: number) => {
+    setDetailVisible(!isDetailVisible);
+    setDetailSelected(id);
+  };
+
+  const handleGalleryAspectRatio = (height: number) => {
+    if (height == 200) return "4 / 2";
+    if (height == 400) return "1";
+    return "2 / 3";
+  };
+
   return (
-    <section className="relative w-full px-24 pt-24">
+    <section className="relative w-full px-24 pt-24 min-h-screen">
       <div className="flex items-center mb-10">
         <motion.h2
           className={`${andadaPro.className} text-[170px] text-[#111111] leading-[0.75] tracking-[-10px] opacity-[0.018] blur-[2px] ml-[-68px]`}
@@ -31,8 +53,8 @@ const Project = ({ project }: ProjectProps) => {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 0.018, x: 0 }}
           transition={{
-            duration: 0.6,
-            ease: "easeIn",
+            duration: 0.3,
+            ease: "easeOut",
           }}
         >
           PROJECT
@@ -43,41 +65,155 @@ const Project = ({ project }: ProjectProps) => {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{
-            duration: 0.6,
-            ease: "easeIn",
+            duration: 0.3,
+            ease: "easeOut",
           }}
         >
           Works<span className="inline-block text-[#FFEE00]">_</span>
         </motion.h2>
       </div>
-      <div>
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 2, 750: 3, 900: 4 }}>
-          <Masonry>
-            {project?.map((item) => {
-              return (
+
+      <div className="relative">
+        <motion.div className="relative xs:columns-1 sm:columns-3 lg:columns-4 gap-3">
+          {project?.map((item, idx) => {
+            return (
+              <AnimatePresence key={item.title}>
+                {isDetailVisible && (
+                  <motion.div
+                    key={detailSelected}
+                    className="absolute w-full h-full inset-0 m-auto z-10 duration-200"
+                    initial={{
+                      opacity: 0,
+                      scale: 0,
+                    }}
+                    animate={{
+                      opacity: detailSelected == idx ? 1 : 0,
+                      scale: detailSelected == idx ? 1 : 0,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0,
+                    }}
+                  >
+                    <motion.div
+                      className="absolute top-0 right-0 text-3xl cursor-pointer px-5 py-7 leading-[0px]"
+                      onClick={() => handleShowDetail(idx)}
+                      initial={{
+                        opacity: 0,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        transition: {
+                          delay: 0.4,
+                        },
+                      }}
+                    >
+                      x
+                    </motion.div>
+                    <motion.div
+                      className="w-full h-full object-contain"
+                      initial={{
+                        opacity: 0,
+                        scale: 0.8,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        delay: 0.3,
+                      }}
+                    >
+                      <motion.div
+                        className="absolute mb-5"
+                        initial={{
+                          opacity: 0,
+                          y: -15,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          duration: 0.6,
+                          delay: 0.3,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <h2
+                          className={`${andadaPro.className} text-[30px] text-[#1f1f1f] mb-2`}
+                        >
+                          {item.title}
+                        </h2>
+                        {item.tags.map((tag: { name: string }, idx) => (
+                          <span
+                            key={idx}
+                            className="text-[12px] bg-[#eee] py-1 px-2 mr-2 rounded-md"
+                          >
+                            {tag.name}
+                          </span>
+                        ))}
+                        <p className="text-lg mt-1">{item.description}</p>
+                      </motion.div>
+                      <Image
+                        className="w-full h-full object-contain"
+                        ref={projectRef}
+                        id={`thumb-${idx}`}
+                        src={`/assets/images/project/${item.image}`}
+                        blurDataURL={item.imageBlur}
+                        alt={item.title}
+                        placeholder="blur"
+                        width={item.width}
+                        height={item.height}
+                        priority
+                      />
+                    </motion.div>
+                  </motion.div>
+                )}
+
                 <motion.div
-                  className="overflow-hidden"
+                  key={idx}
+                  className="mb-3"
+                  style={{
+                    aspectRatio: handleGalleryAspectRatio(item.height),
+                  }}
                   viewport={{ once: true }}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{
-                    duration: 0.6,
-                    ease: "easeIn",
+                    delay: 0.3,
+                    duration: 0.3,
+                    ease: "easeOut",
                   }}
+                  onClick={() => handleShowDetail(idx)}
                 >
-                  <Image
-                    className="relative hover:scale-[1.1] duration-300 cursor-pointer"
-                    src={`/assets/images/project/thumb/${item.image}`}
-                    alt="anjar tanjung"
-                    width={400}
-                    height={200}
-                    priority
-                  />
+                  <motion.div
+                    className="w-full h-full"
+                    initial={{ opacity: 1 }}
+                    animate={{
+                      opacity: isDetailVisible ? 0 : 1,
+                    }}
+                    exit={{ opacity: 1 }}
+                  >
+                    <Image
+                      className="w-full h-full object-contain"
+                      ref={projectRef}
+                      id={`thumb-${idx}`}
+                      src={`/assets/images/project/thumb/${item.thumbnail}`}
+                      blurDataURL={item.thumbnailBlur}
+                      alt={item.title}
+                      placeholder="blur"
+                      width={item.width}
+                      height={item.height}
+                      priority
+                    />
+                  </motion.div>
                 </motion.div>
-              );
-            })}
-          </Masonry>
-        </ResponsiveMasonry>
+              </AnimatePresence>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

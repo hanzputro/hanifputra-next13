@@ -15,8 +15,8 @@ export default function Home(props: HomeProps) {
     <>
       <Header />
       <main className="flex min-h-screen flex-col items-center justify-between">
-        {/* <Hero /> */}
-        {/* <Project project={props.project} /> */}
+        <Hero />
+        <Project project={props.project} />
         <Contact socialMedia={props.socialMedia} />
       </main>
     </>
