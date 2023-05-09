@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Andada_Pro, Inter } from "next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -14,11 +14,26 @@ const inter = Inter({
 
 const Hero = () => {
   const [seconds, setSeconds] = useState(0);
-  const wordArrays = [
-    { name: "Design", color: "#ff446f" },
-    { name: "Codes", color: "#009B77" },
-    { name: "Ideas", color: "#44CCFF" },
-  ];
+  const wordArrays = useMemo(
+    () => [
+      {
+        name: "Design",
+        color:
+          "linear-gradient(60deg, rgba(255,68,111,1) 0%, rgba(255,13,13,1) 100%)",
+      },
+      {
+        name: "Codes",
+        color:
+          "linear-gradient(60deg, rgba(0,155,119,1) 0%, rgba(0,103,2,1) 100%)",
+      },
+      {
+        name: "Ideas",
+        color:
+          "linear-gradient(60deg, rgba(68,204,255,1) 0%, rgba(0,32,250,1) 100%)",
+      },
+    ],
+    []
+  );
   const [quote, setQuote] = useState(wordArrays[2]);
 
   useEffect(() => {
@@ -32,7 +47,7 @@ const Hero = () => {
       }
     }, 4000);
     return () => clearInterval(interval);
-  }, [quote]);
+  }, [quote, seconds, wordArrays]);
 
   return (
     <section className="relative flex justify-items-stretch justify-center items-center w-full min-h-screen px-24 pt-24">
@@ -59,11 +74,12 @@ const Hero = () => {
       <div className="relative flex-1">
         <motion.h1
           className={`${andadaPro.className} text-[86px] leading-[1.3em] mb-8`}
-          initial={{ x: 10, opacity: 0 }}
+          initial={{ x: 15, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
-            duration: 0.6,
+            duration: 0.8,
             ease: "easeInOut",
+            delay: 0.6,
           }}
         >
           <span className="block">
@@ -72,13 +88,13 @@ const Hero = () => {
               <motion.span
                 key={seconds}
                 className="absolute inline-block text-white px-3"
-                initial={{ y: 10, x: 10, opacity: 0 }}
+                initial={{ x: 10, y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1, background: quote.color }}
-                exit={{ y: -10, opacity: 0 }}
+                exit={{ y: 10, opacity: 0 }}
                 transition={{
-                  duration: 0.6,
+                  duration: 0.8,
                   ease: "easeInOut",
-                  delay: 0.3,
+                  delay: 0.9,
                 }}
               >
                 {quote.name}
@@ -90,11 +106,12 @@ const Hero = () => {
 
         <motion.p
           className={`${inter.className} leading-[1.8em]`}
-          initial={{ x: -10, opacity: 0 }}
+          initial={{ x: -15, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
-            duration: 0.6,
+            duration: 0.8,
             ease: "easeInOut",
+            delay: 0.6,
           }}
         >
           Hello, Iam Hanif Putra, a Frontend Engineer. Creating and Combining
@@ -104,8 +121,10 @@ const Hero = () => {
 
       <div className="relative flex-1 w-[700px] h-[500px] overflow-hidden cursor-pointer">
         <iframe
+          className="overflow-auto"
           src="https://my.spline.design/hanifputra-91db9b440c1939db2e258a33d976743d/"
           frameBorder="0"
+          scrolling="yes"
           width="700"
           height="700"
           style={{
