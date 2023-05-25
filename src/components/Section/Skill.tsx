@@ -82,6 +82,7 @@ const Skill = ({ skill }: SkillProps) => {
           <div className="flex items-center pt-3">
             {skillDesigner?.items.map((skill, idx) => (
               <motion.div
+                key={idx}
                 viewport={{ once: true }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -122,6 +123,7 @@ const Skill = ({ skill }: SkillProps) => {
           <div className="flex items-center flex-wrap pt-3">
             {skillDeveloper?.items.map((skill, idx) => (
               <motion.div
+                key={idx}
                 viewport={{ once: true }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
