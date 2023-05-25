@@ -16,7 +16,7 @@ const inter = Inter({
 const Header = () => {
   return (
     <motion.header
-      className="fixed flex justify-between items-center w-full z-[100] h-[85px] px-8 backdrop-blur-sm bg-white/30 
+      className="fixed flex justify-between items-center w-full z-[100] h-[85px] px-8 backdrop-blur-sm
     before:content-[''] before:absolute before:inset-0 before:w-[100%] before:h-[95px] before:backdrop-blur-sm before:blur-sm"
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -39,7 +39,7 @@ const Header = () => {
             priority
           />
           <p
-            className={`${antonio.className} bg-[#f9f970] text-white text-[16px] leading-[1.1em] tracking-[2px] p-[3px] ml-[10px]`}
+            className={`${antonio.className} bg-[#fff01f] text-white text-[16px] leading-[1.1em] tracking-[2px] p-[3px] ml-[10px]`}
           >
             <span className="block">HANIF</span> PUTRA
           </p>

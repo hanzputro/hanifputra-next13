@@ -48,7 +48,7 @@ const Project = ({ project }: ProjectProps) => {
     <section className="relative w-full px-24 pt-24 min-h-screen">
       <div className="flex items-center mb-10">
         <motion.h2
-          className={`${andadaPro.className} text-[170px] text-[#111111] leading-[0.75] tracking-[-10px] opacity-[0.018] blur-[2px] ml-[-68px]`}
+          className={`${andadaPro.className} text-[170px] text-[#111111] leading-[0.75] tracking-[-10px] opacity-[0.02] blur-[5px] ml-[-68px]`}
           viewport={{ once: true }}
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 0.018, x: 0 }}
