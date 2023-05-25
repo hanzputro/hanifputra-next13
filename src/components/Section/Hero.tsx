@@ -54,19 +54,19 @@ const Hero = () => {
       <div className="absolute flex justify-start items-center inset-y-0 left-0 my-auto w-full h-full px-8 pt-[90px]">
         <div className="relative flex items-center justify-center content-center flex-wrap w-full h-full">
           <h1
-            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#111111] opacity-[0.018] blur-[2px]`}
+            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#111111] opacity-[0.02] blur-[5px]`}
           >
-            FRONT
+            WEBSITE
           </h1>
           <h1
-            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#111111] opacity-[0.018] blur-[2px]`}
+            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#111111] opacity-[0.02] blur-[5px]`}
           >
-            END
+            APPLICATION
           </h1>
           <h1
-            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#111111] opacity-[0.018] blur-[2px]`}
+            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#111111] opacity-[0.02] blur-[5px]`}
           >
-            ENGINEER
+            DEVELOPER
           </h1>
         </div>
       </div>
@@ -87,14 +87,14 @@ const Hero = () => {
             <AnimatePresence>
               <motion.span
                 key={seconds}
-                className="absolute inline-block text-white px-3"
+                className="absolute inline-block text-white px-3 ml-2"
                 initial={{ x: 10, y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1, background: quote.color }}
                 exit={{ y: 10, opacity: 0 }}
                 transition={{
-                  duration: 0.8,
+                  duration: 1,
                   ease: "easeInOut",
-                  delay: 0.9,
+                  delay: 1.5,
                 }}
               >
                 {quote.name}
@@ -114,8 +114,8 @@ const Hero = () => {
             delay: 0.6,
           }}
         >
-          Hello, Iam Hanif Putra, a Frontend Engineer. Creating and Combining
-          between design, interactive, and code is my passion ;)
+          Hello, Iam Hanif Putra, a Web App Developer & Designer. Creating and
+          Combining between design, interactive, and code is my passion ;)
         </motion.p>
       </div>
 
