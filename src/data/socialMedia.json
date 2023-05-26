@@ -7,16 +7,16 @@
       "icon": "whatsapp.webp"
     },
     {
-      "title": "Gmail",
-      "link": "mailto:hanzputro@gmail.com",
-      "description": "email me!",
-      "icon": "gmail.webp"
-    },
-    {
       "title": "Linkedin",
       "link": "https://www.linkedin.com/in/hanif-putra-bb05465b/",
       "description": "Linkedin with me!",
       "icon": "linkedin.webp"
+    },
+    {
+      "title": "Gmail",
+      "link": "mailto:hanzputro@gmail.com",
+      "description": "email me!",
+      "icon": "gmail.webp"
     },
     {
       "title": "Github",
