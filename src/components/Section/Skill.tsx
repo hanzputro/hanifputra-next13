@@ -36,15 +36,15 @@ const Skill = ({ skill }: SkillProps) => {
 
   return (
     <section className="relative w-full px-24 pt-24 h-screen">
-      <div className="flex items-center mb-10">
+      <div className="flex items-center justify-end mb-12">
         <motion.h2
-          className={`${andadaPro.className} text-[170px] text-[#111111] leading-[0.75] tracking-[-10px] opacity-[0.02] blur-[5px] ml-[-68px]`}
+          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px]`}
           viewport={{ once: true }}
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 0.018, y: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 0.08, y: 0 }}
           transition={{
-            duration: 0.4,
-            ease: "easeIn",
+            duration: 0.6,
+            ease: "easeInOut",
           }}
         >
           SKILLS
@@ -52,18 +52,18 @@ const Skill = ({ skill }: SkillProps) => {
         <motion.h2
           className={`${andadaPro.className} text-[50px] absolute`}
           viewport={{ once: true }}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.4,
-            ease: "easeIn",
+            duration: 0.6,
+            ease: "easeInOut",
           }}
         >
-          Ability<span className="inline-block text-[#FFEE00]">_</span>
+          <span className="inline-block text-[#FFEE00]">_</span>Ability
         </motion.h2>
       </div>
 
-      <div className="flex w-[80%] mt-[50px]">
+      <div className="flex text-right mt-12">
         <div className="w-1/2">
           <motion.h5
             className={`${inter.className} text-[20px]`}
@@ -73,14 +73,14 @@ const Skill = ({ skill }: SkillProps) => {
             transition={{
               delay: 0.3,
               duration: 0.3,
-              ease: "easeIn",
+              ease: "easeInOut",
             }}
           >
-            <span className="inline-block text-[#FFEE00]">•</span> Web & Graphic
-            Designer
+            <span className="inline-block text-[#FFEE00]">•</span> Web App
+            Developer
           </motion.h5>
-          <div className="flex items-center pt-3">
-            {skillDesigner?.items.map((skill, idx) => (
+          <div className="flex justify-end flex-wrap pt-3">
+            {skillDeveloper?.items.map((skill, idx) => (
               <motion.div
                 key={idx}
                 viewport={{ once: true }}
@@ -89,11 +89,11 @@ const Skill = ({ skill }: SkillProps) => {
                 transition={{
                   delay: 0.3 * idx,
                   duration: 0.6,
-                  ease: "easeIn",
+                  ease: "easeInOut",
                 }}
               >
                 <Image
-                  className="relative opacity-90 hover:opacity-[100] duration-100 w-[84px]"
+                  className="relative w-[84px]"
                   src={`/assets/images/skill/${skill.image}`}
                   alt={skill.title}
                   width={skill.width}
@@ -114,14 +114,14 @@ const Skill = ({ skill }: SkillProps) => {
             transition={{
               delay: 0.3,
               duration: 0.3,
-              ease: "easeIn",
+              ease: "easeInOut",
             }}
           >
-            <span className="inline-block text-[#FFEE00]">•</span> Web App
-            Developer
+            <span className="inline-block text-[#FFEE00]">•</span> Web & Graphic
+            Designer
           </motion.h5>
-          <div className="flex items-center flex-wrap pt-3">
-            {skillDeveloper?.items.map((skill, idx) => (
+          <div className="flex justify-end pt-3">
+            {skillDesigner?.items.map((skill, idx) => (
               <motion.div
                 key={idx}
                 viewport={{ once: true }}
@@ -130,11 +130,11 @@ const Skill = ({ skill }: SkillProps) => {
                 transition={{
                   delay: 0.3 * idx,
                   duration: 0.6,
-                  ease: "easeIn",
+                  ease: "easeInOut",
                 }}
               >
                 <Image
-                  className="relative opacity-90 hover:opacity-[100] duration-100 w-[84px]"
+                  className="relative w-[84px]"
                   src={`/assets/images/skill/${skill.image}`}
                   alt={skill.title}
                   width={skill.width}

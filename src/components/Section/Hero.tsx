@@ -53,21 +53,41 @@ const Hero = () => {
     <section className="relative flex justify-items-stretch justify-center items-center w-full min-h-screen px-24 pt-24">
       <div className="absolute flex justify-start items-center inset-y-0 left-0 my-auto w-full h-full px-8 pt-[90px]">
         <div className="relative flex items-center justify-center content-center flex-wrap w-full h-full">
-          <h1
-            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#111111] opacity-[0.02] blur-[5px]`}
+          <motion.h1
+            initial={{ rotateX: 90, opacity: 0 }}
+            animate={{ rotateX: 0, opacity: 0.08 }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+            }}
+            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px]`}
           >
             WEBSITE
-          </h1>
-          <h1
-            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#111111] opacity-[0.02] blur-[5px]`}
+          </motion.h1>
+          <motion.h1
+            initial={{ rotateX: 90, opacity: 0 }}
+            animate={{ rotateX: 0, opacity: 0.08 }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+              delay: 0.1,
+            }}
+            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px]`}
           >
             APPLICATION
-          </h1>
-          <h1
-            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#111111] opacity-[0.02] blur-[5px]`}
+          </motion.h1>
+          <motion.h1
+            initial={{ rotateX: 90, opacity: 0 }}
+            animate={{ rotateX: 0, opacity: 0.08 }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+              delay: 0.2,
+            }}
+            className={`${andadaPro.className} text-[170px] block w-full leading-[0.8] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px]`}
           >
             DEVELOPER
-          </h1>
+          </motion.h1>
         </div>
       </div>
 
@@ -77,9 +97,9 @@ const Hero = () => {
           initial={{ x: 15, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
-            duration: 0.8,
+            duration: 1,
             ease: "easeInOut",
-            delay: 0.6,
+            delay: 1.6,
           }}
         >
           <span className="block">
@@ -94,7 +114,7 @@ const Hero = () => {
                 transition={{
                   duration: 1,
                   ease: "easeInOut",
-                  delay: 1.5,
+                  delay: 2.6,
                 }}
               >
                 {quote.name}
@@ -109,9 +129,9 @@ const Hero = () => {
           initial={{ x: -15, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{
-            duration: 0.8,
+            duration: 1,
             ease: "easeInOut",
-            delay: 0.6,
+            delay: 1.8,
           }}
         >
           Hello, Iam Hanif Putra, a Web App Developer & Designer. Creating and

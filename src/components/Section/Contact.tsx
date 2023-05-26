@@ -22,15 +22,15 @@ interface ContactProps {
 const Contact = ({ socialMedia }: ContactProps) => {
   return (
     <section className="relative w-full px-24 pt-24 h-screen mt-20">
-      <div className="flex items-center mb-10">
+      <div className="flex justify-end items-center mb-12">
         <motion.h2
-          className={`${andadaPro.className} text-[170px] text-[#111111] leading-[0.75] tracking-[-10px] opacity-[0.02] blur-[5px] ml-[-68px]`}
+          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px]`}
           viewport={{ once: true }}
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 0.018, x: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 0.08, y: 0 }}
           transition={{
-            duration: 0.3,
-            ease: "easeOut",
+            duration: 0.6,
+            ease: "easeInOut",
           }}
         >
           CONTACT
@@ -38,28 +38,29 @@ const Contact = ({ socialMedia }: ContactProps) => {
         <motion.h2
           className={`${andadaPro.className} text-[50px] absolute`}
           viewport={{ once: true }}
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.3,
-            ease: "easeOut",
+            duration: 0.6,
+            ease: "easeInOut",
           }}
         >
-          Get In Touch<span className="inline-block text-[#FFEE00]">_</span>
+          <span className="inline-block text-[#FFEE00]">_</span>Get In Touch
         </motion.h2>
       </div>
 
-      <motion.div
-        className="flex justify-between space-x-4"
-        viewport={{ once: true }}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.3,
-          ease: "easeOut",
-        }}
-      >
-        <div className="p-6 w-1/2">
+      <div className="flex justify-between space-x-4 mt-12">
+        <motion.div
+          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeInOut",
+            delay: 0.3,
+          }}
+          className="p-6 w-1/2"
+        >
           <p>
             Let&apos;s discuss with me become even greater at what you do. so
             excited to hear from you and let&apos;s start something special
@@ -87,9 +88,19 @@ const Contact = ({ socialMedia }: ContactProps) => {
               );
             })}
           </ul>
-        </div>
+        </motion.div>
 
-        <div className="w-1/2">
+        <motion.div
+          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.6,
+            ease: "easeInOut",
+            delay: 0.1,
+          }}
+          className="w-1/2"
+        >
           <iframe
             width="100%"
             height="250"
@@ -98,8 +109,8 @@ const Contact = ({ socialMedia }: ContactProps) => {
             referrerPolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvup5TyX63Z9LECF2-AgzDe1cIU37sGFg&q=Depok,Jawa+Barat"
           ></iframe>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };

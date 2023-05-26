@@ -46,15 +46,15 @@ const Project = ({ project }: ProjectProps) => {
 
   return (
     <section className="relative w-full px-24 pt-24 min-h-screen">
-      <div className="flex items-center mb-10">
+      <div className="flex items-center mb-12">
         <motion.h2
-          className={`${andadaPro.className} text-[170px] text-[#111111] leading-[0.75] tracking-[-10px] opacity-[0.02] blur-[5px] ml-[-68px]`}
+          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px] ml-[-10px]`}
           viewport={{ once: true }}
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 0.018, x: 0 }}
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 0.08, y: 0 }}
           transition={{
-            duration: 0.3,
-            ease: "easeOut",
+            duration: 0.6,
+            ease: "easeInOut",
           }}
         >
           PROJECT
@@ -62,18 +62,18 @@ const Project = ({ project }: ProjectProps) => {
         <motion.h2
           className={`${andadaPro.className} text-[50px] absolute`}
           viewport={{ once: true }}
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{
-            duration: 0.3,
-            ease: "easeOut",
+            duration: 0.6,
+            ease: "easeInOut",
           }}
         >
           Works<span className="inline-block text-[#FFEE00]">_</span>
         </motion.h2>
       </div>
 
-      <div className="relative">
+      <div className="relative mt-12 pb-20">
         <motion.div className="relative xs:columns-1 sm:columns-3 lg:columns-4 gap-3">
           {project?.map((item, idx) => {
             return (
