@@ -1,6 +1,11 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Andada_Pro, Inter } from "next/font/google";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -12,7 +17,24 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const Hero = () => {
+interface HeroProps {
+  setCurrentHash: (value: string) => void;
+  currentHash: string;
+}
+const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
+  const homeRef = useRef<any>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: homeRef,
+    offset: ["start center", "end center"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (_latest) => {
+    if (currentHash !== "") {
+      setCurrentHash("");
+    }
+  });
+
   const [seconds, setSeconds] = useState(0);
   const wordArrays = useMemo(
     () => [
@@ -50,7 +72,10 @@ const Hero = () => {
   }, [quote, seconds, wordArrays]);
 
   return (
-    <section className="relative flex justify-items-stretch justify-center items-center w-full min-h-screen px-24 pt-24">
+    <section
+      ref={homeRef}
+      className="relative flex justify-items-stretch justify-center items-center w-full h-screen px-24 pt-24 overflow-hidden"
+    >
       <div className="absolute flex justify-start items-center inset-y-0 left-0 my-auto w-full h-full px-8 pt-[90px]">
         <div className="relative flex items-center justify-center content-center flex-wrap w-full h-full">
           <motion.h1

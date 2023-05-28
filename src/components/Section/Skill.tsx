@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { Andada_Pro, Inter } from "next/font/google";
-import { motion } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -28,14 +28,29 @@ export interface SkillType {
 
 interface SkillProps {
   skill: SkillType[];
+  setCurrentHash: (value: string) => void;
+  currentHash: string;
 }
 
-const Skill = ({ skill }: SkillProps) => {
+const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
+  const skillRef = useRef<any>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: skillRef,
+    offset: ["start center", "end center"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (_latest) => {
+    if (currentHash !== "#skill") {
+      setCurrentHash("#skill");
+    }
+  });
+
   const skillDesigner = skill.find((skill) => skill.category == "designer");
   const skillDeveloper = skill.find((skill) => skill.category == "developer");
 
   return (
-    <section className="relative w-full px-24 pt-24 h-screen">
+    <section ref={skillRef} className="relative w-full px-24 pt-24 h-screen">
       <div className="flex items-center justify-end mb-12">
         <motion.h2
           className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px]`}
@@ -47,7 +62,7 @@ const Skill = ({ skill }: SkillProps) => {
             ease: "easeInOut",
           }}
         >
-          SKILLS
+          Ability
         </motion.h2>
         <motion.h2
           className={`${andadaPro.className} text-[50px] absolute`}
@@ -59,7 +74,7 @@ const Skill = ({ skill }: SkillProps) => {
             ease: "easeInOut",
           }}
         >
-          <span className="inline-block text-[#FFEE00]">_</span>Ability
+          <span className="inline-block text-[#FFEE00]">_</span>Skill
         </motion.h2>
       </div>
 
