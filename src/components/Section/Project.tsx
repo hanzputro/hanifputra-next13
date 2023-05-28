@@ -1,7 +1,12 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { Andada_Pro } from "next/font/google";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -26,12 +31,13 @@ export interface ImageListCustomType {
 
 interface ProjectProps {
   project: ProjectDetailType[];
+  setCurrentHash: (value: string) => void;
+  currentHash: string;
 }
 
-const Project = ({ project }: ProjectProps) => {
+const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
   const [isDetailVisible, setDetailVisible] = useState(false);
   const [detailSelected, setDetailSelected] = useState(0);
-  const projectRef = useRef<any>(null);
 
   const handleShowDetail = (id: number) => {
     setDetailVisible(!isDetailVisible);
@@ -44,8 +50,24 @@ const Project = ({ project }: ProjectProps) => {
     return "2 / 3";
   };
 
+  const projectRef = useRef<any>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: projectRef,
+    offset: ["start center", "end center"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (_latest) => {
+    if (currentHash !== "#project") {
+      setCurrentHash("#project");
+    }
+  });
+
   return (
-    <section className="relative w-full px-24 pt-24 min-h-screen">
+    <section
+      ref={projectRef}
+      className="relative w-full px-24 pt-24 min-h-screen"
+    >
       <div className="flex items-center mb-12">
         <motion.h2
           className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px] ml-[-10px]`}
@@ -57,7 +79,7 @@ const Project = ({ project }: ProjectProps) => {
             ease: "easeInOut",
           }}
         >
-          PROJECT
+          WORKS
         </motion.h2>
         <motion.h2
           className={`${andadaPro.className} text-[50px] absolute`}
@@ -69,7 +91,7 @@ const Project = ({ project }: ProjectProps) => {
             ease: "easeInOut",
           }}
         >
-          Works<span className="inline-block text-[#FFEE00]">_</span>
+          Project<span className="inline-block text-[#FFEE00]">_</span>
         </motion.h2>
       </div>
 

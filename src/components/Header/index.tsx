@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Antonio, Inter } from "next/font/google";
 import { motion } from "framer-motion";
@@ -13,7 +13,48 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const Header = () => {
+export interface NavigationType {
+  label: string;
+  hash: string;
+  ref: any;
+}
+
+interface NavigationProps {
+  navigation: NavigationType[];
+  sectionRef: any;
+  currentHash: string;
+}
+
+const Header = ({ navigation, sectionRef, currentHash }: NavigationProps) => {
+  const [navigationWithRef, setNavigationWithRef] = useState<any>();
+
+  useEffect(() => {
+    const handleNavigationWithRef = navigation.map((items) => {
+      const addRef = () => {
+        switch (items.hash) {
+          case "#skill":
+            return sectionRef?.skillRef;
+          case "#project":
+            return sectionRef?.projectRef;
+          case "#contact":
+            return sectionRef?.contactRef;
+          default:
+            return sectionRef?.heroRef;
+        }
+      };
+      return {
+        ...items,
+        ref: addRef(),
+      };
+    });
+
+    setNavigationWithRef(handleNavigationWithRef);
+  }, [sectionRef]);
+
+  const handleScrollTo = (ref: any) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" }, 1000);
+  };
+
   return (
     <motion.header
       className="fixed flex justify-between items-center w-full z-[100] h-[85px] px-8 backdrop-blur-sm
@@ -47,17 +88,29 @@ const Header = () => {
       </div>
 
       <ul
-        className={`${inter.className} relative flex items-center space-x-4 text-[#111111] text-[14px]`}
+        className={`${inter.className} relative flex items-center text-[#111111] text-[14px]`}
       >
-        <li>
-          <a href="#work">Me</a>
-        </li>
-        <li>
-          <a href="#work">Works</a>
-        </li>
-        <li>
-          <a href="#get-in-touch">Get In Touch</a>
-        </li>
+        {navigationWithRef?.map((nav: NavigationType, idx: number) => (
+          <li
+            key={idx}
+            className="relative px-2 mx-1 cursor-pointer"
+            onClick={() => handleScrollTo(nav.ref)}
+          >
+            <p
+              className="relative z-10"
+              style={{ color: currentHash == nav.hash ? "white" : "#303030" }}
+            >
+              {nav.label}
+            </p>
+            {currentHash == nav.hash && (
+              <motion.div
+                layoutId="rect"
+                transition={{ duration: 0.4, type: "spring" }}
+                className="absolute left-0 top-0 w-full h-[22px] bg-[#fff01f] z-0"
+              />
+            )}
+          </li>
+        ))}
       </ul>
     </motion.header>
   );

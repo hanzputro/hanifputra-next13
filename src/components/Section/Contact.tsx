@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { Andada_Pro } from "next/font/google";
-import { motion } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -17,11 +17,30 @@ export interface SocialMediaDetailType {
 
 interface ContactProps {
   socialMedia: SocialMediaDetailType[];
+  setCurrentHash: (value: string) => void;
+  currentHash: string;
 }
 
-const Contact = ({ socialMedia }: ContactProps) => {
+const Contact = ({
+  socialMedia,
+  setCurrentHash,
+  currentHash,
+}: ContactProps) => {
+  const contactRef = useRef<any>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: contactRef,
+    offset: ["start center", "end center"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (_latest) => {
+    if (currentHash !== "#contact") {
+      setCurrentHash("#contact");
+    }
+  });
+
   return (
-    <section className="relative w-full px-24 pt-24 h-screen mt-20">
+    <section ref={contactRef} className="relative w-full px-24 pt-24 h-screen">
       <div className="flex justify-end items-center mb-12">
         <motion.h2
           className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px]`}
