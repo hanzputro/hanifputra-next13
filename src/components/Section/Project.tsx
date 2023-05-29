@@ -95,30 +95,27 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
         </motion.h2>
       </div>
 
-      <div className="relative mt-12 pb-20">
-        <motion.div className="relative xs:columns-1 sm:columns-3 lg:columns-4 gap-3">
+      <div className="mt-12 pb-20">
+        <motion.div className="xs:columns-1 sm:columns-3 lg:columns-4 gap-3">
           {project?.map((item, idx) => {
             return (
               <AnimatePresence key={item.title}>
                 {isDetailVisible && (
                   <motion.div
                     key={detailSelected}
-                    className="absolute w-full h-full inset-0 m-auto z-10 duration-200"
+                    className="fixed top-0 left-0 w-full h-full inset-0 m-auto z-[100] duration-200 backdrop-blur-md bg-white bg-opacity-80"
                     initial={{
-                      opacity: 0,
                       scale: 0,
                     }}
                     animate={{
-                      opacity: detailSelected == idx ? 1 : 0,
                       scale: detailSelected == idx ? 1 : 0,
                     }}
                     exit={{
-                      opacity: 0,
                       scale: 0,
                     }}
                   >
                     <motion.div
-                      className="absolute top-0 right-0 text-3xl cursor-pointer px-5 py-7 leading-[0px]"
+                      className="absolute top-0 right-0 text-3xl cursor-pointer p-[20px] pb-[30px] leading-[0px] bg-[#FFEE00] text-white"
                       onClick={() => handleShowDetail(idx)}
                       initial={{
                         opacity: 0,
@@ -132,11 +129,12 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                     >
                       x
                     </motion.div>
+
                     <motion.div
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-contain overflow-auto"
                       initial={{
                         opacity: 0,
-                        scale: 0.8,
+                        scale: 1.2,
                       }}
                       animate={{
                         opacity: 1,
@@ -144,11 +142,11 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                       }}
                       transition={{
                         duration: 0.3,
-                        delay: 0.3,
+                        delay: 0.6,
                       }}
                     >
                       <motion.div
-                        className="absolute mb-5"
+                        className="fixed top-0 mb-5 p-6"
                         initial={{
                           opacity: 0,
                           y: -15,
@@ -164,22 +162,22 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                         }}
                       >
                         <h2
-                          className={`${andadaPro.className} text-[30px] text-[#1f1f1f] mb-2`}
+                          className={`${andadaPro.className} text-[30px] text-[#1f1f1f] mb-1`}
                         >
                           {item.title}
                         </h2>
+                        <p className="text-lg mt-1">{item.description}</p>
                         {item.tags.map((tag: { name: string }, idx) => (
                           <span
                             key={idx}
-                            className="text-[12px] bg-[#eee] py-1 px-2 mr-2 rounded-md"
+                            className="text-[10px] border-[#FFEE00] bg-black border py-1 px-2 mr-2 rounded-lg font-semibold text-[#FFEE00]"
                           >
                             {tag.name}
                           </span>
                         ))}
-                        <p className="text-lg mt-1">{item.description}</p>
                       </motion.div>
                       <Image
-                        className="w-full h-full object-contain"
+                        className="w-[800px] max-w-full pt-[160px] px-10 mx-auto"
                         ref={projectRef}
                         id={`thumb-${idx}`}
                         src={`/assets/images/project/${item.image}`}
@@ -212,11 +210,15 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                 >
                   <motion.div
                     className="w-full h-full"
-                    initial={{ opacity: 1 }}
+                    initial={{ scale: 1 }}
                     animate={{
-                      opacity: isDetailVisible ? 0 : 1,
+                      scale: isDetailVisible ? 0.5 : 1,
                     }}
-                    exit={{ opacity: 1 }}
+                    exit={{ scale: 1 }}
+                    transition={{
+                      duration: 0.6,
+                      type: "spring",
+                    }}
                   >
                     <Image
                       className="w-full h-full object-contain"

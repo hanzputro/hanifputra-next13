@@ -57,8 +57,8 @@ const Header = ({ navigation, sectionRef, currentHash }: NavigationProps) => {
 
   return (
     <motion.header
-      className="fixed flex justify-between items-center w-full z-[100] h-[85px] px-8 backdrop-blur-sm
-    before:content-[''] before:absolute before:inset-0 before:w-[100%] before:h-[95px] before:backdrop-blur-sm before:blur-sm"
+      className="fixed flex justify-between items-center w-full z-[100] h-[85px] px-8 backdrop-blur-md
+    before:content-[''] before:absolute before:inset-0 before:w-[100%] before:h-[95px] before:backdrop-blur-md before:blur-sm"
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
@@ -102,7 +102,7 @@ const Header = ({ navigation, sectionRef, currentHash }: NavigationProps) => {
             >
               {nav.label}
             </p>
-            {currentHash == nav.hash && (
+            {currentHash === nav.hash && (
               <motion.div
                 layoutId="rect"
                 transition={{ duration: 0.4, type: "spring" }}
