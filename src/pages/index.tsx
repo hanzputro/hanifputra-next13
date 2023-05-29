@@ -59,7 +59,7 @@ export default function Home(props: HomeProps) {
           />
         </div>
 
-        <div ref={projectRef}>
+        <div className="w-full" ref={projectRef}>
           <Project
             project={props.project}
             setCurrentHash={setCurrentHash}
