@@ -62,8 +62,9 @@ const Header = ({ navigation, sectionRef, currentHash }: NavigationProps) => {
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
-        duration: 0.6,
-        ease: "easeInOut",
+        duration: 0.8,
+        ease: "easeOut",
+        delay: 2.8,
       }}
     >
       <div className="relative flex items-center space-x-4">

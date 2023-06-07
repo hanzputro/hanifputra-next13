@@ -38,7 +38,6 @@ export default function Home(props: HomeProps) {
     });
   }, []);
 
-  console.log("currentHash:", currentHash);
   return (
     <>
       <Header

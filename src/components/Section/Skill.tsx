@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { Andada_Pro, Inter } from "next/font/google";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent, stagger } from "framer-motion";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -49,28 +49,43 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
   const skillDesigner = skill.find((skill) => skill.category == "designer");
   const skillDeveloper = skill.find((skill) => skill.category == "developer");
 
+  const skillVariants = {
+    initial: { y: 30, opacity: 0 },
+    whileInView: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        delayChildren: 0.8,
+        staggerChildren: 0.2,
+        duration: 0.6,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <section ref={skillRef} className="relative w-full px-24 pt-24 h-screen">
       <div className="flex items-center justify-end mb-12">
         <motion.h2
-          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px]`}
+          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#e2e2e2] opacity-[0] blur-[1px]`}
           viewport={{ once: true }}
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 0.08, y: 0 }}
+          initial={{ opacity: 0, x: -150 }}
+          whileInView={{ opacity: 0.62, x: 0 }}
           transition={{
-            duration: 0.6,
+            duration: 1,
             ease: "easeInOut",
           }}
         >
-          Ability
+          ABILITY
         </motion.h2>
         <motion.h2
           className={`${andadaPro.className} text-[50px] absolute`}
           viewport={{ once: true }}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 70 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{
-            duration: 0.6,
+            duration: 1,
             ease: "easeInOut",
           }}
         >
@@ -83,28 +98,35 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
           <motion.h5
             className={`${inter.className} text-[20px]`}
             viewport={{ once: true }}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
-              delay: 0.3,
-              duration: 0.3,
+              duration: 0.8,
               ease: "easeInOut",
+              delay: 1,
             }}
           >
-            <span className="inline-block text-[#FFEE00]">•</span> Web App
-            Developer
+            <span className="inline-block text-[#FFEE00]">•</span> Web & Graphic
+            Designer
           </motion.h5>
-          <div className="flex justify-end flex-wrap pt-3">
-            {skillDeveloper?.items.map((skill, idx) => (
+          <motion.div
+            className="flex justify-end pt-3"
+            variants={skillVariants}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+          >
+            {skillDesigner?.items.map((skill, idx) => (
               <motion.div
                 key={idx}
-                viewport={{ once: true }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: 0.3 * idx,
-                  duration: 0.6,
-                  ease: "easeInOut",
+                variants={{
+                  ...skillVariants,
+                  whileInView: {
+                    ...skillVariants.whileInView,
+                    transition: {
+                      ...skillVariants.whileInView.transition,
+                    },
+                  },
                 }}
               >
                 <Image
@@ -117,37 +139,42 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
                 />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         <div className="w-1/2">
           <motion.h5
             className={`${inter.className} text-[20px]`}
             viewport={{ once: true }}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
-              delay: 0.3,
-              duration: 0.3,
+              duration: 0.8,
               ease: "easeInOut",
+              delay: 2,
             }}
           >
-            <span className="inline-block text-[#FFEE00]">•</span> Web & Graphic
-            Designer
+            <span className="inline-block text-[#FFEE00]">•</span> Web App
+            Developer
           </motion.h5>
-          <div className="flex justify-end pt-3">
-            {skillDesigner?.items.map((skill, idx) => (
-              <motion.div
-                key={idx}
-                viewport={{ once: true }}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: 0.3 * idx,
-                  duration: 0.6,
-                  ease: "easeInOut",
-                }}
-              >
+          <motion.div
+            className="flex justify-end flex-wrap pt-3"
+            variants={{
+              ...skillVariants,
+              whileInView: {
+                ...skillVariants.whileInView,
+                transition: {
+                  ...skillVariants.whileInView.transition,
+                  delay: 1,
+                },
+              },
+            }}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+          >
+            {skillDeveloper?.items.map((skill, idx) => (
+              <motion.div key={idx} variants={skillVariants}>
                 <Image
                   className="relative w-[84px]"
                   src={`/assets/images/skill/${skill.image}`}
@@ -158,7 +185,7 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
                 />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

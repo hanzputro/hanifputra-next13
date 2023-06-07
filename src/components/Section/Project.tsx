@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { Andada_Pro } from "next/font/google";
 import {
@@ -63,47 +63,36 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
     }
   });
 
-  return (
-    <section
-      ref={projectRef}
-      className="relative w-full px-24 pt-24 min-h-screen"
-    >
-      <div className="flex items-center mb-12">
-        <motion.h2
-          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px] ml-[-10px]`}
-          viewport={{ once: true }}
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 0.08, y: 0 }}
-          transition={{
-            duration: 0.6,
-            ease: "easeInOut",
-          }}
-        >
-          WORKS
-        </motion.h2>
-        <motion.h2
-          className={`${andadaPro.className} text-[50px] absolute`}
-          viewport={{ once: true }}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.6,
-            ease: "easeInOut",
-          }}
-        >
-          Project<span className="inline-block text-[#FFEE00]">_</span>
-        </motion.h2>
-      </div>
+  const galleryVariants = {
+    initial: { y: 50, opacity: 0 },
+    whileInView: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        delayChildren: 0.8,
+        staggerChildren: 0.2,
+        duration: 0.6,
+        ease: "easeInOut",
+      },
+    },
+  };
 
-      <div className="mt-12 pb-20">
-        <motion.div className="xs:columns-1 sm:columns-3 lg:columns-4 gap-3">
+  interface galleryType {
+    handleShowDetail: (value: number) => void;
+  }
+
+  const GalleryDetail = useCallback(
+    ({ handleShowDetail }: galleryType) => {
+      return (
+        <>
           {project?.map((item, idx) => {
             return (
               <AnimatePresence key={item.title}>
                 {isDetailVisible && (
                   <motion.div
                     key={detailSelected}
-                    className="fixed top-0 left-0 w-full h-full inset-0 m-auto z-[100] duration-200 backdrop-blur-md bg-white bg-opacity-80"
+                    className="fixed inset-0 w-full h-full m-auto z-[100] backdrop-blur-md bg-white bg-opacity-80"
                     initial={{
                       scale: 0,
                     }}
@@ -112,6 +101,9 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                     }}
                     exit={{
                       scale: 0,
+                    }}
+                    transition={{
+                      duration: 0,
                     }}
                   >
                     <motion.div
@@ -191,53 +183,98 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                     </motion.div>
                   </motion.div>
                 )}
-
-                <motion.div
-                  key={idx}
-                  className="mb-3"
-                  style={{
-                    aspectRatio: handleGalleryAspectRatio(item.height),
-                  }}
-                  viewport={{ once: true }}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: 0.3,
-                    duration: 0.3,
-                    ease: "easeOut",
-                  }}
-                  onClick={() => handleShowDetail(idx)}
-                >
-                  <motion.div
-                    className="w-full h-full"
-                    initial={{ scale: 1 }}
-                    animate={{
-                      scale: isDetailVisible ? 0.5 : 1,
-                    }}
-                    exit={{ scale: 1 }}
-                    transition={{
-                      duration: 0.6,
-                      type: "spring",
-                    }}
-                  >
-                    <Image
-                      className="w-full h-full object-contain"
-                      ref={projectRef}
-                      id={`thumb-${idx}`}
-                      src={`/assets/images/project/thumb/${item.thumbnail}`}
-                      blurDataURL={item.thumbnailBlur}
-                      alt={item.title}
-                      placeholder="blur"
-                      width={item.width}
-                      height={item.height}
-                      priority
-                    />
-                  </motion.div>
-                </motion.div>
               </AnimatePresence>
             );
           })}
-        </motion.div>
+        </>
+      );
+    },
+    [project, handleShowDetail]
+  );
+
+  return (
+    <section
+      ref={projectRef}
+      className="relative w-full px-24 pt-24 min-h-screen"
+    >
+      <div className="flex items-center mb-12">
+        <motion.h2
+          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#e2e2e2] opacity-[0] blur-[1px] ml-[-10px]`}
+          viewport={{ once: true }}
+          initial={{ opacity: 0, x: 150 }}
+          whileInView={{ opacity: 0.62, x: 0 }}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+          }}
+        >
+          WORKS
+        </motion.h2>
+        <motion.h2
+          className={`${andadaPro.className} text-[50px] absolute`}
+          viewport={{ once: true }}
+          initial={{ opacity: 0, x: -70 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+          }}
+        >
+          Project<span className="inline-block text-[#FFEE00]">_</span>
+        </motion.h2>
+      </div>
+
+      <div className="mt-12 pb-20">
+        <div className="xs:columns-1 sm:columns-3 lg:columns-4 gap-3">
+          {project?.map((item, idx) => (
+            <motion.div key={item.title} variants={galleryVariants}>
+              <motion.div
+                key={idx}
+                className="mb-3"
+                style={{
+                  aspectRatio: handleGalleryAspectRatio(item.height),
+                }}
+                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.3,
+                  duration: 0.3,
+                  ease: "easeOut",
+                }}
+                onClick={() => handleShowDetail(idx)}
+              >
+                <motion.div
+                  className="w-full h-full"
+                  initial={{ scale: 1 }}
+                  animate={{
+                    scale: isDetailVisible ? 0.5 : 1,
+                  }}
+                  exit={{ scale: 1 }}
+                  transition={{
+                    duration: 0.6,
+                    type: "spring",
+                  }}
+                >
+                  <Image
+                    className="w-full h-full object-contain"
+                    ref={projectRef}
+                    id={`thumb-${idx}`}
+                    src={`/assets/images/project/thumb/${item.thumbnail}`}
+                    blurDataURL={item.thumbnailBlur}
+                    alt={item.title}
+                    placeholder="blur"
+                    width={item.width}
+                    height={item.height}
+                    priority
+                  />
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+
+        <GalleryDetail handleShowDetail={handleShowDetail} />
       </div>
     </section>
   );
