@@ -43,12 +43,12 @@ const Contact = ({
     <section ref={contactRef} className="relative w-full px-24 pt-24 h-screen">
       <div className="flex justify-end items-center mb-12">
         <motion.h2
-          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#999] opacity-[0.08] blur-[5px]`}
+          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#e2e2e2] opacity-[0] blur-[1px]`}
           viewport={{ once: true }}
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 0.08, y: 0 }}
+          initial={{ opacity: 0, x: -150 }}
+          whileInView={{ opacity: 0.62, x: 0 }}
           transition={{
-            duration: 0.6,
+            duration: 1,
             ease: "easeInOut",
           }}
         >
@@ -57,10 +57,10 @@ const Contact = ({
         <motion.h2
           className={`${andadaPro.className} text-[50px] absolute`}
           viewport={{ once: true }}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 70 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{
-            duration: 0.6,
+            duration: 1,
             ease: "easeInOut",
           }}
         >
@@ -71,12 +71,12 @@ const Contact = ({
       <div className="flex justify-between space-x-4 mt-12">
         <motion.div
           viewport={{ once: true }}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.6,
             ease: "easeInOut",
-            delay: 0.3,
+            delay: 0.6,
           }}
           className="p-6 w-1/2"
         >
@@ -111,12 +111,12 @@ const Contact = ({
 
         <motion.div
           viewport={{ once: true }}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.6,
             ease: "easeInOut",
-            delay: 0.1,
+            delay: 0.8,
           }}
           className="w-1/2"
         >
