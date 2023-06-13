@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { Andada_Pro } from "next/font/google";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { isMobile } from "react-device-detect";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -40,10 +41,13 @@ const Contact = ({
   });
 
   return (
-    <section ref={contactRef} className="relative w-full px-24 pt-24 h-screen">
+    <section
+      ref={contactRef}
+      className="relative w-full px-5 md:px-12 lg:px-24 pt-14 md:pt-24 pb-3 md:pb-0 min-h-screen"
+    >
       <div className="flex justify-end items-center mb-12">
         <motion.h2
-          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#e2e2e2] opacity-[0] blur-[1px]`}
+          className={`${andadaPro.className} text-[80px] md:text-[140px] lg:text-[160px] leading-[0.9] md:leading-[0.8] tracking-[-10px] md:tracking-[-15px] lg:tracking-[-13px] text-[#f5f5f5] md:text-[#e2e2e2] opacity-[0] blur-[1px]`}
           viewport={{ once: true }}
           initial={{ opacity: 0, x: -150 }}
           whileInView={{ opacity: 0.62, x: 0 }}
@@ -55,7 +59,7 @@ const Contact = ({
           CONTACT
         </motion.h2>
         <motion.h2
-          className={`${andadaPro.className} text-[50px] absolute`}
+          className={`${andadaPro.className} text-[40px] md:text-[50px] absolute`}
           viewport={{ once: true }}
           initial={{ opacity: 0, x: 70 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -68,7 +72,7 @@ const Contact = ({
         </motion.h2>
       </div>
 
-      <div className="flex justify-between space-x-4 mt-12">
+      <div className="flex flex-wrap lg:flex-nowrap justify-between lg:space-x-4 lg:mt-12">
         <motion.div
           viewport={{ once: true }}
           initial={{ opacity: 0, y: 50 }}
@@ -78,18 +82,18 @@ const Contact = ({
             ease: "easeInOut",
             delay: 0.6,
           }}
-          className="p-6 w-1/2"
+          className="order-2 lg:order-1 lg:p-6 mb-6 lg:mb-0 w-full lg:w-1/2 text-right mt-5 lg:mt-0"
         >
           <p>
             Let&apos;s discuss with me become even greater at what you do. so
             excited to hear from you and let&apos;s start something special
             together.
             <span className="block">feel free to contact me ;)</span>
-            <span className="block mt-1">
+            <span className="block mt-2">
               <strong>Depok</strong>, <strong>Indonesia</strong>
             </span>
           </p>
-          <ul className="flex items-center space-x-5 mt-5">
+          <ul className="flex justify-end items-center space-x-5 mt-5 mb-5">
             {socialMedia?.map((item) => {
               return (
                 <li key={item.title}>
@@ -118,11 +122,11 @@ const Contact = ({
             ease: "easeInOut",
             delay: 0.8,
           }}
-          className="w-1/2"
+          className="order-1 lg:order-2 w-full lg:w-1/2"
         >
           <iframe
             width="100%"
-            height="250"
+            height={isMobile ? "200" : "250"}
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
