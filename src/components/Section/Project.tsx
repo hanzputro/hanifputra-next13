@@ -63,21 +63,6 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
     }
   });
 
-  const galleryVariants = {
-    initial: { y: 50, opacity: 0 },
-    whileInView: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        delayChildren: 0.8,
-        staggerChildren: 0.2,
-        duration: 0.6,
-        ease: "easeInOut",
-      },
-    },
-  };
-
   interface galleryType {
     handleShowDetail: (value: number) => void;
   }
@@ -107,7 +92,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                     }}
                   >
                     <motion.div
-                      className="absolute top-0 right-0 text-3xl cursor-pointer p-[20px] pb-[30px] leading-[0px] bg-[#FFEE00] text-white"
+                      className="absolute top-0 right-0 text-3xl cursor-pointer p-[20px] pb-[30px] leading-[0px] bg-[#FFEE00] text-white z-[110]"
                       onClick={() => handleShowDetail(idx)}
                       initial={{
                         opacity: 0,
@@ -138,7 +123,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                       }}
                     >
                       <motion.div
-                        className="fixed top-0 mb-5 p-6"
+                        className="fixed top-0 mb-5 py-4 px-4 md:p-6 w-[calc(100%-60px)]"
                         initial={{
                           opacity: 0,
                           y: -15,
@@ -154,11 +139,13 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                         }}
                       >
                         <h2
-                          className={`${andadaPro.className} text-[30px] text-[#1f1f1f] mb-1`}
+                          className={`${andadaPro.className} text-[26px] leading-[1.1] md:text-[30px] text-[#1f1f1f] mb-1`}
                         >
                           {item.title}
                         </h2>
-                        <p className="text-lg mt-1">{item.description}</p>
+                        <p className="text-sm md:text-lg mt-1">
+                          {item.description}
+                        </p>
                         {item.tags.map((tag: { name: string }, idx) => (
                           <span
                             key={idx}
@@ -169,7 +156,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                         ))}
                       </motion.div>
                       <Image
-                        className="w-[800px] max-w-full pt-[160px] px-10 mx-auto"
+                        className="w-[800px] max-w-full pt-[120px] md:pt-[160px] px-10 mx-auto"
                         ref={projectRef}
                         id={`thumb-${idx}`}
                         src={`/assets/images/project/${item.image}`}
@@ -195,11 +182,11 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
   return (
     <section
       ref={projectRef}
-      className="relative w-full px-24 pt-24 min-h-screen"
+      className="relative w-full px-5 md:px-12 lg:px-24 pt-14 md:pt-24 pb-3 md:pb-0 min-h-screen"
     >
       <div className="flex items-center mb-12">
         <motion.h2
-          className={`${andadaPro.className} text-[170px] leading-[0.75] tracking-[-10px] text-[#e2e2e2] opacity-[0] blur-[1px] ml-[-10px]`}
+          className={`${andadaPro.className} text-[80px] md:text-[140px] lg:text-[160px] leading-[0.9] md:leading-[0.8] tracking-[-8px] md:tracking-[-15px] lg:tracking-[-13px] text-[#f5f5f5] md:text-[#e2e2e2] opacity-[0] blur-[1px] ml-[-10px]`}
           viewport={{ once: true }}
           initial={{ opacity: 0, x: 150 }}
           whileInView={{ opacity: 0.62, x: 0 }}
@@ -211,7 +198,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
           WORKS
         </motion.h2>
         <motion.h2
-          className={`${andadaPro.className} text-[50px] absolute`}
+          className={`${andadaPro.className} text-[40px] md:text-[50px] absolute`}
           viewport={{ once: true }}
           initial={{ opacity: 0, x: -70 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -225,9 +212,9 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
       </div>
 
       <div className="mt-12 pb-20">
-        <div className="xs:columns-1 sm:columns-3 lg:columns-4 gap-3">
+        <div className="columns-2 sm:columns-3 lg:columns-4 gap-3">
           {project?.map((item, idx) => (
-            <motion.div key={item.title} variants={galleryVariants}>
+            <div key={item.title}>
               <motion.div
                 key={idx}
                 className="mb-3"
@@ -257,7 +244,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                   }}
                 >
                   <Image
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain  cursor-pointer"
                     ref={projectRef}
                     id={`thumb-${idx}`}
                     src={`/assets/images/project/thumb/${item.thumbnail}`}
@@ -270,7 +257,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                   />
                 </motion.div>
               </motion.div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
