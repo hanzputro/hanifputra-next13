@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Antonio, Inter } from "next/font/google";
 import { motion, useAnimate, stagger } from "framer-motion";
-import { isMobileOnly } from "react-device-detect";
 import { MenuToggle } from "../MenuToggle";
 
 const antonio = Antonio({
@@ -131,8 +130,8 @@ const Header = ({ navigation, sectionRef, currentHash }: NavigationProps) => {
   return (
     <motion.header
       className="fixed flex justify-between items-center w-full z-[100] h-[60px] md:h-[70px] lg:h-[85px] px-2 lg:px-8 backdrop-blur-md
-    before:content-[''] before:absolute before:inset-0 before:w-[100%] before:h-[68px] before:md:h-[78px] before:lg:h-[95px] before:backdrop-blur-md before:blur-sm md:opacity-0"
-      variants={!isMobileOnly ? headerVariants : undefined}
+    before:content-[''] before:absolute before:inset-0 before:w-[100%] before:h-[68px] before:md:h-[78px] before:lg:h-[95px] before:backdrop-blur-md before:blur-sm opacity-0"
+      variants={headerVariants}
       animate="slide"
     >
       <div className="relative flex items-center space-x-4 ml-[-7px] lg:ml-0">
@@ -167,7 +166,10 @@ const Header = ({ navigation, sectionRef, currentHash }: NavigationProps) => {
             <li
               key={idx}
               className="relative md:w-full md:px-2 mx-1 my-1 lg:my-0 cursor-pointer opacity-0 lg:opacity-100 scale-50 lg:scale-100 blur-[10px] lg:blur-0 invisible"
-              onClick={() => handleScrollTo(nav.ref)}
+              onClick={() => {
+                handleScrollTo(nav.ref);
+                setIsOpen(!isOpen);
+              }}
             >
               <p className="relative whitespace-nowrap z-10 text-[#303030]">
                 {nav.label}

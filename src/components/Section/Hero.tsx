@@ -175,7 +175,7 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
 
       <div className="relative flex-1">
         <motion.h1
-          className={`${andadaPro.className} text-[50px] md:text-[86px] leading-[1.2] md:leading-[1.3] mb-3 md:mb-8 opacity-0`}
+          className={`${andadaPro.className} text-[50px] md:text-[86px] leading-[1.2] md:leading-[1.3] mb-4 md:mb-8 opacity-0`}
           variants={titleVariants}
           animate="slide"
         >

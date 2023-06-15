@@ -50,11 +50,11 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
   const skillDeveloper = skill.find((skill) => skill.category == "developer");
 
   const titleVariants = {
+    initial: { x: 70, opacity: 0 },
     whileInView: {
-      x: [70, 0],
-      opacity: [0, 1],
+      x: 0,
+      opacity: 1,
       transition: {
-        times: [0, 1],
         duration: 1,
         ease: "easeInOut",
       },
@@ -62,11 +62,11 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
   };
 
   const titleShadowVariants = {
+    initial: { x: -150, opacity: 0 },
     whileInView: {
-      x: [-150, 0],
-      opacity: [0, 0.62],
+      x: 0,
+      opacity: 0.62,
       transition: {
-        times: [0, 1],
         duration: 1,
         ease: "easeInOut",
       },
@@ -97,7 +97,8 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
         <motion.h2
           className={`${andadaPro.className} text-[80px] md:text-[140px] lg:text-[160px] leading-[0.9] md:leading-[0.8] tracking-[-8px] md:tracking-[-15px] lg:tracking-[-13px] text-[#f5f5f5] md:text-[#e2e2e2] opacity-[0] blur-[1px]`}
           variants={titleShadowVariants}
-          animate="whileInView"
+          initial="initial"
+          whileInView="whileInView"
           viewport={{ once: true }}
         >
           ABILITY
@@ -105,7 +106,8 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
         <motion.h2
           className={`${andadaPro.className} text-[40px] md:text-[50px] absolute`}
           variants={titleVariants}
-          animate="whileInView"
+          initial="initial"
+          whileInView="whileInView"
           viewport={{ once: true }}
         >
           <span className="inline-block text-[#FFEE00]">_</span>Skill

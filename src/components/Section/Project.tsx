@@ -92,7 +92,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                     }}
                   >
                     <motion.div
-                      className="absolute top-0 right-0 text-3xl cursor-pointer p-[20px] pb-[30px] leading-[0px] bg-[#FFEE00] text-white"
+                      className="absolute top-0 right-0 text-3xl cursor-pointer p-[20px] pb-[30px] leading-[0px] bg-[#FFEE00] text-white z-[110]"
                       onClick={() => handleShowDetail(idx)}
                       initial={{
                         opacity: 0,
@@ -123,7 +123,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                       }}
                     >
                       <motion.div
-                        className="fixed top-0 mb-5 p-6"
+                        className="fixed top-0 mb-5 py-4 px-4 md:p-6 w-[calc(100%-60px)]"
                         initial={{
                           opacity: 0,
                           y: -15,
@@ -139,11 +139,13 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                         }}
                       >
                         <h2
-                          className={`${andadaPro.className} text-[30px] text-[#1f1f1f] mb-1`}
+                          className={`${andadaPro.className} text-[26px] leading-[1.1] md:text-[30px] text-[#1f1f1f] mb-1`}
                         >
                           {item.title}
                         </h2>
-                        <p className="text-lg mt-1">{item.description}</p>
+                        <p className="text-sm md:text-lg mt-1">
+                          {item.description}
+                        </p>
                         {item.tags.map((tag: { name: string }, idx) => (
                           <span
                             key={idx}
@@ -154,7 +156,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                         ))}
                       </motion.div>
                       <Image
-                        className="w-[800px] max-w-full pt-[160px] px-10 mx-auto"
+                        className="w-[800px] max-w-full pt-[120px] md:pt-[160px] px-10 mx-auto"
                         ref={projectRef}
                         id={`thumb-${idx}`}
                         src={`/assets/images/project/${item.image}`}
@@ -242,7 +244,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                   }}
                 >
                   <Image
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain  cursor-pointer"
                     ref={projectRef}
                     id={`thumb-${idx}`}
                     src={`/assets/images/project/thumb/${item.thumbnail}`}
