@@ -114,7 +114,7 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
         </motion.h2>
       </div>
 
-      <div className="flex flex-wrap lg:flex-nowrap text-right md:mt-12">
+      <div className="flex flex-wrap lg:flex-nowrap text-right md:mt-12 md:space-x-4">
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
           <motion.h5
             className={`${inter.className} text-[18px] md:text-[20px]`}
