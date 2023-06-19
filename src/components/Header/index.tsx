@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Antonio, Inter } from "next/font/google";
 import { motion, useAnimate, stagger } from "framer-motion";
 import { MenuToggle } from "../MenuToggle";
+import { isMobile } from "react-device-detect";
 
 const antonio = Antonio({
   weight: ["100"],
@@ -165,10 +166,10 @@ const Header = ({ navigation, sectionRef, currentHash }: NavigationProps) => {
           {navigationWithRef?.map((nav: NavigationType, idx: number) => (
             <li
               key={idx}
-              className="relative md:w-full md:px-2 mx-1 my-1 lg:my-0 cursor-pointer opacity-0 lg:opacity-100 scale-50 lg:scale-100 blur-[10px] lg:blur-0 invisible"
+              className="relative md:w-full md:px-2 mx-1 my-1 lg:my-0 cursor-pointer opacity-0 lg:opacity-100 scale-50 lg:scale-100 blur-[10px] lg:blur-0 invisible lg:visible"
               onClick={() => {
                 handleScrollTo(nav.ref);
-                setIsOpen(!isOpen);
+                setIsOpen(isMobile ? !isOpen : false);
               }}
             >
               <p className="relative whitespace-nowrap z-10 text-[#303030]">

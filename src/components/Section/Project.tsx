@@ -23,6 +23,8 @@ export interface ProjectDetailType {
   thumbnailBlur: string;
   width: number;
   height: number;
+  thumbWidth: number;
+  thumbHeight: number;
 }
 
 export interface ImageListCustomType {
@@ -111,11 +113,9 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                       className="w-full h-full object-contain overflow-auto"
                       initial={{
                         opacity: 0,
-                        scale: 1.2,
                       }}
                       animate={{
                         opacity: 1,
-                        scale: 1,
                       }}
                       transition={{
                         duration: 0.3,
@@ -219,7 +219,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                 key={idx}
                 className="mb-3"
                 style={{
-                  aspectRatio: handleGalleryAspectRatio(item.height),
+                  aspectRatio: handleGalleryAspectRatio(item.thumbHeight),
                 }}
                 viewport={{ once: true }}
                 initial={{ opacity: 0, y: 50 }}
@@ -251,8 +251,8 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
                     blurDataURL={item.thumbnailBlur}
                     alt={item.title}
                     placeholder="blur"
-                    width={item.width}
-                    height={item.height}
+                    width={item.thumbWidth}
+                    height={item.thumbHeight}
                     priority
                   />
                 </motion.div>
