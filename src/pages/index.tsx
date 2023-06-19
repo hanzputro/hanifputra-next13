@@ -38,7 +38,6 @@ export default function Home(props: HomeProps) {
     });
   }, []);
 
-  console.log("currentHash:", currentHash);
   return (
     <>
       <Header
@@ -47,11 +46,11 @@ export default function Home(props: HomeProps) {
         currentHash={currentHash}
       />
       <main className="flex min-h-screen flex-col items-center justify-between">
-        <div ref={heroRef}>
+        <div className="w-full overflow-hidden" ref={heroRef}>
           <Hero setCurrentHash={setCurrentHash} currentHash={currentHash} />
         </div>
 
-        <div ref={skillRef}>
+        <div className="w-full overflow-hidden" ref={skillRef}>
           <Skill
             skill={props.skill}
             setCurrentHash={setCurrentHash}
@@ -59,7 +58,7 @@ export default function Home(props: HomeProps) {
           />
         </div>
 
-        <div className="w-full" ref={projectRef}>
+        <div className="w-full overflow-hidden" ref={projectRef}>
           <Project
             project={props.project}
             setCurrentHash={setCurrentHash}
@@ -67,7 +66,7 @@ export default function Home(props: HomeProps) {
           />
         </div>
 
-        <div ref={contactRef}>
+        <div className="w-full overflow-hidden" ref={contactRef}>
           <Contact
             socialMedia={props.socialMedia}
             setCurrentHash={setCurrentHash}
