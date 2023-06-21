@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { Andada_Pro, Inter } from "next/font/google";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { Tooltip } from "../Tooltip";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -150,14 +151,16 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
                   },
                 }}
               >
-                <Image
-                  className="relative w-[64px] md:w-[84px]"
-                  src={`/assets/images/skill/${skill.image}`}
-                  alt={skill.title}
-                  width={skill.width}
-                  height={skill.height}
-                  priority
-                />
+                <Tooltip text={skill.title}>
+                  <Image
+                    className="relative w-[64px] md:w-[84px]"
+                    src={`/assets/images/skill/${skill.image}`}
+                    alt={skill.title}
+                    width={skill.width}
+                    height={skill.height}
+                    priority
+                  />
+                </Tooltip>
               </motion.div>
             ))}
           </motion.div>
@@ -196,14 +199,16 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
           >
             {skillDeveloper?.items.map((skill, idx) => (
               <motion.div key={idx} variants={skillVariants}>
-                <Image
-                  className="relative w-[64px] md:w-[84px]"
-                  src={`/assets/images/skill/${skill.image}`}
-                  alt={skill.title}
-                  width={skill.width}
-                  height={skill.height}
-                  priority
-                />
+                <Tooltip text={skill.title}>
+                  <Image
+                    className="relative w-[64px] md:w-[84px]"
+                    src={`/assets/images/skill/${skill.image}`}
+                    alt={skill.title}
+                    width={skill.width}
+                    height={skill.height}
+                    priority
+                  />
+                </Tooltip>
               </motion.div>
             ))}
           </motion.div>
