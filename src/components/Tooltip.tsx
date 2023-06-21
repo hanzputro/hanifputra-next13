@@ -14,6 +14,7 @@ export const Tooltip = ({ text, children }: TooltipProps) => {
   const tooltipVariants = {
     slide: {
       y: [10, 0],
+      x: ["-50%", "-50%"],
       opacity: [0, 1],
       transition: {
         times: [0, 1],
@@ -46,7 +47,7 @@ export const Tooltip = ({ text, children }: TooltipProps) => {
       <AnimatePresence key={text}>
         {displayTooltip && (
           <motion.div
-            className="absolute inline-table left-0 right-0 bottom-[100%] mx-auto bg-gradient-to-b from-zinc-700 to-zinc-950 py-[1px] px-[6px] ]text-center rounded-sm text-white text-[12px] font-semibold"
+            className="absolute inline-table left-1/2 bottom-[100%] mx-auto bg-gradient-to-b from-zinc-700 to-zinc-950 py-[1px] px-[6px] ]text-center rounded-sm text-white text-[12px] font-semibold whitespace-nowrap"
             variants={tooltipVariants}
             animate="slide"
           >

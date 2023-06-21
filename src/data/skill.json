@@ -44,21 +44,21 @@
       "category": "developer",
       "items": [
         {
-          "title": "React js",
+          "title": "React JS",
           "image": "reactjs-logo.png",
           "imageBlur": "",
           "width": 200,
           "height": 200
         },
         {
-          "title": "Gatsby js",
+          "title": "Gatsby JS",
           "image": "gatsbyjs-logo.png",
           "imageBlur": "",
           "width": 200,
           "height": 200
         },
         {
-          "title": "Next js",
+          "title": "Next JS",
           "image": "nextjs-logo.png",
           "imageBlur": "",
           "width": 200,
@@ -86,7 +86,7 @@
           "height": 200
         },
         {
-          "title": "Node js",
+          "title": "Node JS",
           "image": "nodejs-logo.png",
           "imageBlur": "",
           "width": 200,
