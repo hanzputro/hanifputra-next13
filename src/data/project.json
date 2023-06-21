@@ -29,7 +29,7 @@
     {
       "title": "Ayana Hotel - Booking Engine",
       "tags": [{ "name": "Frontend Developer" }],
-      "description": "website system for booking ticket from Ayana Hotel",
+      "description": "website booking system from Ayana Hotel",
       "image": "ayana-hotel.jpg",
       "imageBlur": "LORyseWE_NxuIVWVxukC-;j[IAWB",
       "thumbnail": "ayana-hotel.jpg",
@@ -55,7 +55,7 @@
     {
       "title": "Hino Jabotabek",
       "tags": [{ "name": "Designer" }, { "name": "Fullstack Engineer" }],
-      "description": "website that sells hino cars",
+      "description": "website which sells hino cars",
       "image": "hino-jabotabek.jpg",
       "imageBlur": "UFNAk,RP?vxu00xZNGaz=_-;9FM{~qM{%2fk",
       "thumbnail": "hino-jabotabek.jpg",
@@ -68,7 +68,7 @@
     {
       "title": "Flashads Portal",
       "tags": [{ "name": "Frontend Engineer" }],
-      "description": "Website that showing ads from flashads",
+      "description": "Website which show advertise from flashads",
       "image": "flashads-portal.jpg",
       "imageBlur": "UaRCi4?wb^Dh-:RkM_t6yEM_jFxuMyxukWM{",
       "thumbnail": "flashads-portal.jpg",
@@ -94,7 +94,7 @@
     {
       "title": "Flashads Company Profile",
       "tags": [{ "name": "Frontend Engineer" }],
-      "description": "Website that introduce their personal company",
+      "description": "Website which introduce flashads company",
       "image": "flashads-compro.jpg",
       "imageBlur": "U7R{+0s;~q%ME0t7?aM{4ot7%MM{iya$-;R%",
       "thumbnail": "flashads-compro.jpg",
@@ -120,7 +120,7 @@
     {
       "title": "Xfloor Landing Page",
       "tags": [{ "name": "Designer" }, { "name": "Frontend Engineer" }],
-      "description": "Website that sells xfloor application",
+      "description": "Website which introduce xfloor application",
       "image": "xfloor.jpg",
       "imageBlur": "UJCrQMMxIo?H%2NabHxZ}AxakCRjS#Naa|s:",
       "thumbnail": "xfloor.jpg",
@@ -146,7 +146,7 @@
     {
       "title": "UIN University",
       "tags": [{ "name": "Frontend Engineer" }],
-      "description": "Website that introduce UIN University",
+      "description": "Website which introduce UIN University",
       "image": "uin.jpg",
       "imageBlur": "UEK_dz01xaxa009ZNG%M.S_3ozIU00~qV@NG",
       "thumbnail": "uin.jpg",
@@ -159,7 +159,7 @@
     {
       "title": "Qpocket Landing Page",
       "tags": [{ "name": "Frontend Engineer" }],
-      "description": "website that sells qpocket application",
+      "description": "website which introduce qpocket application",
       "image": "qpocket.jpg",
       "imageBlur": "U1OM,4~CKP0y8wv~D%FJ00Z$4nOr00xa009Z",
       "thumbnail": "qpocket.jpg",
@@ -211,7 +211,7 @@
     {
       "title": "Anjar Tanjung Profile",
       "tags": [{ "name": "Frontend Engineer" }],
-      "description": "Website that introduce anjar tanjung profile",
+      "description": "Website which introduce anjar tanjung profile",
       "image": "anjartanjung.jpg",
       "imageBlur": "UXQ9[xNH_3xb?cj?M_of_4t7IURjM_kCt7Rj",
       "thumbnail": "anjartanjung.jpg",
