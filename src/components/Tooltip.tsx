@@ -47,7 +47,7 @@ export const Tooltip = ({ text, children }: TooltipProps) => {
       <AnimatePresence key={text}>
         {displayTooltip && (
           <motion.div
-            className="absolute inline-table left-1/2 bottom-[100%] mx-auto bg-gradient-to-b from-zinc-700 to-zinc-950 py-[1px] px-[6px] ]text-center rounded-sm text-white text-[12px] font-semibold whitespace-nowrap"
+            className="absolute inline-table left-1/2 bottom-[100%] mx-auto bg-gradient-to-b from-zinc-700 to-zinc-950 pb-[1px] px-[6px] ]text-center rounded-sm text-white text-[12px] font-semibold whitespace-nowrap"
             variants={tooltipVariants}
             animate="slide"
           >
