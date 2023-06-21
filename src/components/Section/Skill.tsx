@@ -10,7 +10,7 @@ const andadaPro = Andada_Pro({
 });
 
 const inter = Inter({
-  weight: ["400"],
+  weight: ["400", "600"],
   subsets: ["latin"],
 });
 
@@ -118,7 +118,7 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
       <div className="flex flex-wrap lg:flex-nowrap text-right md:mt-12 md:space-x-4">
         <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
           <motion.h5
-            className={`${inter.className} text-[18px] md:text-[20px]`}
+            className={`${inter.className} text-[18px] md:text-[20px] font-semibold`}
             viewport={{ once: true }}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -128,8 +128,7 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
               delay: 1,
             }}
           >
-            <span className="inline-block text-[#FFEE00]">•</span> Web & Graphic
-            Designer
+            <span className="inline-block text-[#FFEE00]">•</span> DESIGN
           </motion.h5>
           <motion.div
             className="flex justify-end md:pt-3"
@@ -168,7 +167,7 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
 
         <div className="w-full lg:w-1/2">
           <motion.h5
-            className={`${inter.className} text-[18px] md:text-[20px]`}
+            className={`${inter.className} text-[18px] md:text-[20px] font-semibold`}
             viewport={{ once: true }}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -178,8 +177,7 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
               delay: 2,
             }}
           >
-            <span className="inline-block text-[#FFEE00]">•</span> Web App
-            Developer
+            <span className="inline-block text-[#FFEE00]">•</span> CODE
           </motion.h5>
           <motion.div
             className="flex justify-end flex-wrap md:pt-3"

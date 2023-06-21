@@ -204,8 +204,9 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
           variants={descriptionVariants}
           animate="slide"
         >
-          Hello, Iam Hanif Putra, a Web App Developer & Designer. Creating and
-          Combining between design, interactive, and code is my passion ;)
+          Hello, My name Hanif Putra, you can call me Hanif, a Web App
+          Developer. Interactive thinker, Love animation, Code solver. Creating
+          and Combining between design, interactive, and code is my passion ;)
         </motion.p>
       </div>
 
