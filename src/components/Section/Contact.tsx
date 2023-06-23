@@ -90,7 +90,10 @@ const Contact = ({
             together.
             <span className="block">feel free to contact me ;)</span>
             <span className="block mt-2">
-              <strong>Depok</strong>, <strong>Indonesia</strong>
+              Jl. H. Sena RT003 RW004, Desa Raga Jaya, Kec. Bojong Gede, 16928
+              <strong className="block">
+                Kab. Bogor, West Java, Indonesia
+              </strong>
             </span>
           </p>
           <ul className="flex justify-end items-center space-x-5 mt-5 mb-5">
@@ -130,7 +133,7 @@ const Contact = ({
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvup5TyX63Z9LECF2-AgzDe1cIU37sGFg&q=Depok,Jawa+Barat"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvup5TyX63Z9LECF2-AgzDe1cIU37sGFg&q=Jl.+H.+Sena+RT003+RW004,+Desa+Raga+Jaya,+Kec.+Bojong+Gede,Jawa+Barat"
           ></iframe>
         </motion.div>
       </div>
