@@ -54,7 +54,7 @@
     },
     {
       "title": "Hino Jabotabek",
-      "tags": [{ "name": "Designer" }, { "name": "Fullstack Engineer" }],
+      "tags": [{ "name": "Designer" }, { "name": "Fullstack Developer" }],
       "description": "website which sells hino cars",
       "image": "hino-jabotabek.jpg",
       "imageBlur": "UFNAk,RP?vxu00xZNGaz=_-;9FM{~qM{%2fk",
@@ -67,7 +67,7 @@
     },
     {
       "title": "Flashads Portal",
-      "tags": [{ "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Frontend Developer" }],
       "description": "Website which show advertise from flashads",
       "image": "flashads-portal.jpg",
       "imageBlur": "UaRCi4?wb^Dh-:RkM_t6yEM_jFxuMyxukWM{",
@@ -93,7 +93,7 @@
     },
     {
       "title": "Flashads Company Profile",
-      "tags": [{ "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Frontend Developer" }],
       "description": "Website which introduce flashads company",
       "image": "flashads-compro.jpg",
       "imageBlur": "U7R{+0s;~q%ME0t7?aM{4ot7%MM{iya$-;R%",
@@ -119,7 +119,7 @@
     },
     {
       "title": "Xfloor Landing Page",
-      "tags": [{ "name": "Designer" }, { "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Designer" }, { "name": "Frontend Developer" }],
       "description": "Website which introduce xfloor application",
       "image": "xfloor.jpg",
       "imageBlur": "UJCrQMMxIo?H%2NabHxZ}AxakCRjS#Naa|s:",
@@ -145,7 +145,7 @@
     },
     {
       "title": "UIN University",
-      "tags": [{ "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Frontend Developer" }],
       "description": "Website which introduce UIN University",
       "image": "uin.jpg",
       "imageBlur": "UEK_dz01xaxa009ZNG%M.S_3ozIU00~qV@NG",
@@ -158,7 +158,7 @@
     },
     {
       "title": "Qpocket Landing Page",
-      "tags": [{ "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Frontend Developer" }],
       "description": "website which introduce qpocket application",
       "image": "qpocket.jpg",
       "imageBlur": "U1OM,4~CKP0y8wv~D%FJ00Z$4nOr00xa009Z",
@@ -210,7 +210,7 @@
     },
     {
       "title": "Anjar Tanjung Profile",
-      "tags": [{ "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Frontend Developer" }],
       "description": "Website which introduce anjar tanjung profile",
       "image": "anjartanjung.jpg",
       "imageBlur": "UXQ9[xNH_3xb?cj?M_of_4t7IURjM_kCt7Rj",
