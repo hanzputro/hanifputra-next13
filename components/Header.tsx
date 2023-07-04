@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Antonio, Inter } from "next/font/google";
 import { motion, useAnimate, stagger } from "framer-motion";
-import { MenuToggle } from "../MenuToggle";
+import { MenuToggle } from "./MenuToggle";
 import { isMobile } from "react-device-detect";
 
 const antonio = Antonio({
@@ -18,7 +18,7 @@ const inter = Inter({
 export interface NavigationType {
   label: string;
   hash: string;
-  ref: any;
+  ref?: any;
 }
 
 interface NavigationProps {
@@ -77,7 +77,7 @@ function useMenuAnimation(isOpen: boolean) {
       ],
       ...menuAnimations,
     ]);
-  }, [isOpen]);
+  }, [isOpen, animate]);
 
   return scope;
 }
@@ -86,7 +86,7 @@ const Header = ({ navigation, sectionRef, currentHash }: NavigationProps) => {
   const [navigationWithRef, setNavigationWithRef] = useState<any>();
 
   useEffect(() => {
-    const handleNavigationWithRef = navigation.map((items) => {
+    const handleNavigationWithRef = navigation?.map((items) => {
       const addRef = () => {
         switch (items.hash) {
           case "#skill":
@@ -106,7 +106,7 @@ const Header = ({ navigation, sectionRef, currentHash }: NavigationProps) => {
     });
 
     setNavigationWithRef(handleNavigationWithRef);
-  }, [sectionRef]);
+  }, [sectionRef, navigation]);
 
   const handleScrollTo = (ref: any) => {
     ref.current?.scrollIntoView({ behavior: "smooth" }, 1000);

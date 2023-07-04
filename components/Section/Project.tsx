@@ -13,9 +13,13 @@ const andadaPro = Andada_Pro({
   subsets: ["latin"],
 });
 
+export interface TagType {
+  name: string;
+}
+
 export interface ProjectDetailType {
   title: string;
-  tags: [];
+  tags: TagType[];
   description: string;
   image: string;
   imageBlur: string;
@@ -176,7 +180,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
         </>
       );
     },
-    [project, handleShowDetail]
+    [project, detailSelected, isDetailVisible]
   );
 
   return (
