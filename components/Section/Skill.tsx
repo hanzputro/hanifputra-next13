@@ -47,8 +47,8 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
     }
   });
 
-  const skillDesigner = skill.find((skill) => skill.category == "designer");
-  const skillDeveloper = skill.find((skill) => skill.category == "developer");
+  const skillDesigner = skill?.find((skill) => skill.category == "designer");
+  const skillDeveloper = skill?.find((skill) => skill.category == "developer");
 
   const titleVariants = {
     initial: { x: 70, opacity: 0 },

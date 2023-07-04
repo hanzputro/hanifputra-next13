@@ -1,11 +1,14 @@
+"use client";
 import Header, { NavigationType } from "@/components/Header";
 import Hero from "@/components/Section/Hero";
 import Project, { ProjectDetailType } from "@/components/Section/Project";
 import Contact, { SocialMediaDetailType } from "@/components/Section/Contact";
 import Skill, { SkillType } from "@/components/Section/Skill";
-import fsPromises from "fs/promises";
-import path from "path";
 import { useEffect, useRef, useState } from "react";
+import jsonNavigationData from "@/data/navigation.json";
+import jsonSkillData from "@/data/skill.json";
+import jsonProjectData from "@/data/project.json";
+import jsonSocialMediaData from "@/data/socialMedia.json";
 
 interface HomeProps {
   navigation: NavigationType[];
@@ -21,13 +24,18 @@ export interface SectionRefProps {
   contactRef: any;
 }
 
-export default function Home(props: HomeProps) {
+export default function Home() {
   const [currentHash, setCurrentHash] = useState("");
   const [sectionRef, setSectionRef] = useState<SectionRefProps>();
   const heroRef = useRef<any>(null);
   const skillRef = useRef<any>(null);
   const projectRef = useRef<any>(null);
   const contactRef = useRef<any>(null);
+
+  const navigation = jsonNavigationData.navigation;
+  const skill = jsonSkillData.skill;
+  const project = jsonProjectData.project;
+  const socialMedia = jsonSocialMediaData.socialMedia;
 
   useEffect(() => {
     setSectionRef({
@@ -41,7 +49,7 @@ export default function Home(props: HomeProps) {
   return (
     <>
       <Header
-        navigation={props.navigation}
+        navigation={navigation}
         sectionRef={sectionRef}
         currentHash={currentHash}
       />
@@ -52,7 +60,7 @@ export default function Home(props: HomeProps) {
 
         <div className="w-full overflow-hidden" ref={skillRef}>
           <Skill
-            skill={props.skill}
+            skill={skill}
             setCurrentHash={setCurrentHash}
             currentHash={currentHash}
           />
@@ -60,7 +68,7 @@ export default function Home(props: HomeProps) {
 
         <div className="w-full overflow-hidden" ref={projectRef}>
           <Project
-            project={props.project}
+            project={project}
             setCurrentHash={setCurrentHash}
             currentHash={currentHash}
           />
@@ -68,7 +76,7 @@ export default function Home(props: HomeProps) {
 
         <div className="w-full overflow-hidden" ref={contactRef}>
           <Contact
-            socialMedia={props.socialMedia}
+            socialMedia={socialMedia}
             setCurrentHash={setCurrentHash}
             currentHash={currentHash}
           />
@@ -76,38 +84,4 @@ export default function Home(props: HomeProps) {
       </main>
     </>
   );
-}
-
-// Fetching data from the JSON file
-export async function getStaticProps() {
-  const fileNavigation = path.join(process.cwd(), "src/data/navigation.json");
-  const jsonNavigationData: HomeProps["navigation"] | any =
-    await fsPromises.readFile(fileNavigation);
-  const navigationData = JSON.parse(jsonNavigationData);
-
-  const fileProject = path.join(process.cwd(), "src/data/project.json");
-  const jsonProjectData: HomeProps["project"] | any = await fsPromises.readFile(
-    fileProject
-  );
-  const projectData = JSON.parse(jsonProjectData);
-
-  const fileSocialMedia = path.join(process.cwd(), "src/data/socialMedia.json");
-  const jsonSocialMediaData: HomeProps["project"] | any =
-    await fsPromises.readFile(fileSocialMedia);
-  const socialMediaData = JSON.parse(jsonSocialMediaData);
-
-  const fileSkill = path.join(process.cwd(), "src/data/skill.json");
-  const jsonSkillData: HomeProps["skill"] | any = await fsPromises.readFile(
-    fileSkill
-  );
-  const skillData = JSON.parse(jsonSkillData);
-
-  return {
-    props: {
-      ...navigationData,
-      ...projectData,
-      ...socialMediaData,
-      ...skillData,
-    },
-  };
 }
