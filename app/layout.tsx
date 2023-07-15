@@ -58,6 +58,7 @@ export const metadata: Metadata = {
       alt: process.env.TITLE,
     },
   },
+  manifest: `${VERCEL_URL}manifest.json`,
 };
 
 export default function RootLayout({
