@@ -1,0 +1,24 @@
+{
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "display": "fullscreen",
+  "id": "/?source=pwa",
+  "scope": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "orientation": "any",
+  "name": "Portfolio Website | Hanif Putra",
+  "short_name": "Hanif Putra",
+  "description": "Hi, Iam Hanif, a Web App Developer. Interactive thinker, Love animation, Code solver. Creating and Combining between design, interactive, and code is my passion ;)",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
