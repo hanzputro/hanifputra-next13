@@ -1,0 +1,26 @@
+export const socialMedia = [
+  {
+    title: "Whatsapp",
+    link: "https://wa.me/62895330613232?text=Hi,%20how%20are%20you%20?",
+    description: "Whatsapp me!",
+    icon: "whatsapp.webp",
+  },
+  {
+    title: "Linkedin",
+    link: "https://www.linkedin.com/in/hanif-putra-bb05465b/",
+    description: "Linkedin with me!",
+    icon: "linkedin.webp",
+  },
+  {
+    title: "Gmail",
+    link: "mailto:hanzputro@gmail.com",
+    description: "email me!",
+    icon: "gmail.webp",
+  },
+  {
+    title: "Github",
+    link: "https://github.com/hanzputro",
+    description: "Github with me!",
+    icon: "github.webp",
+  },
+];

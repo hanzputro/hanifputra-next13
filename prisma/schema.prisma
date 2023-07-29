@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model navigation {
+  id    Int    @id @default(autoincrement())
+  label String
+  hash  String
+}
+
+model Tag {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  ProjectId Project[] @relation("ProjectToTag")
+}
+
+model Project {
+  id            String @id @default(cuid())
+  title         String
+  description   String
+  image         String
+  imageBlur     String
+  thumbnail     String
+  thumbnailBlur String
+  width         Int
+  height        Int
+  thumbWidth    Int
+  thumbHeight   Int
+  tags          Tag[]  @relation("ProjectToTag")
+}
+
+model SkillItem {
+  id        Int    @id @default(autoincrement())
+  title     String
+  image     String
+  imageBlur String
+  width     Int
+  height    Int
+  skillId   Int?
+  Skill     Skill? @relation(fields: [skillId], references: [id])
+}
+
+model Skill {
+  id       Int         @id @default(autoincrement())
+  category String
+  items    SkillItem[]
+}
+
+model SocialMedia {
+  id          Int    @id @default(autoincrement())
+  title       String
+  link        String
+  description String
+  icon        String
+}
