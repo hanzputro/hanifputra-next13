@@ -5,10 +5,10 @@ import Project, { ProjectDetailType } from "@/components/Section/Project";
 import Contact, { SocialMediaDetailType } from "@/components/Section/Contact";
 import Skill, { SkillType } from "@/components/Section/Skill";
 import { useEffect, useRef, useState } from "react";
-import jsonNavigationData from "@/data/navigation.json";
-import jsonSkillData from "@/data/skill.json";
-import jsonProjectData from "@/data/project.json";
-import jsonSocialMediaData from "@/data/socialMedia.json";
+import { navigation } from "@/data/navigation";
+import { skill } from "@/data/skill";
+import { project } from "@/data/project";
+import { socialMedia } from "@/data/socialMedia";
 
 interface HomeProps {
   navigation: NavigationType[];
@@ -31,11 +31,6 @@ export default function Home() {
   const skillRef = useRef<any>(null);
   const projectRef = useRef<any>(null);
   const contactRef = useRef<any>(null);
-
-  const navigation = jsonNavigationData.navigation;
-  const skill = jsonSkillData.skill;
-  const project = jsonProjectData.project;
-  const socialMedia = jsonSocialMediaData.socialMedia;
 
   useEffect(() => {
     setSectionRef({
