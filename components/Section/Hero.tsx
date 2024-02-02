@@ -120,6 +120,19 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
     },
   };
 
+  const frameVariants = {
+    slide: {
+      y: [-15, 0],
+      opacity: [0, 1],
+      transition: {
+        duration: 1,
+        times: [0, 1],
+        ease: "easeInOut",
+        delay: 2.7,
+      },
+    },
+  };
+
   return (
     <section
       ref={homeRef}
@@ -204,13 +217,17 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
           variants={descriptionVariants}
           animate="slide"
         >
-          Hi, Iam Hanif, a Web App Developer. Interactive thinker, Love
-          animation, Code solver. Creating and Combining between design,
-          interactive, and code is my passion ;)
+          Hi!, call me Hanif a Web App Developer. Interactive thinker, Love
+          smooth transitions, and code solver. Crafting design, code, and
+          interactive visualization is my passion ;)
         </motion.p>
       </div>
 
-      <div className="hidden lg:block relative flex-1 w-[700px] h-[500px] overflow-hidden cursor-pointer">
+      <motion.div
+        className="hidden lg:block relative flex-1 w-[700px] h-[500px] overflow-hidden cursor-pointer"
+        variants={frameVariants}
+        animate="slide"
+      >
         <iframe
           className="overflow-auto"
           src="https://my.spline.design/hanifputra-91db9b440c1939db2e258a33d976743d/"
@@ -223,7 +240,7 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
             marginTop: "-120px",
           }}
         ></iframe>
-      </div>
+      </motion.div>
     </section>
   );
 };
