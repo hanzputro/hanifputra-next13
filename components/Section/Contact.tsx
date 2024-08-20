@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { Andada_Pro } from "next/font/google";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
