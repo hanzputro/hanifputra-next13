@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { Andada_Pro } from "next/font/google";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -72,7 +72,7 @@ const Contact = ({
         </motion.h2>
       </div>
 
-      <div className="flex flex-wrap lg:flex-nowrap justify-between lg:space-x-4 lg:mt-12">
+      <div className="flex flex-wrap lg:flex-nowrap justify-end lg:space-x-4 lg:mt-12">
         <motion.div
           viewport={{ once: true }}
           initial={{ opacity: 0, y: 50 }}
@@ -82,20 +82,18 @@ const Contact = ({
             ease: "easeInOut",
             delay: 0.6,
           }}
-          className="order-2 lg:order-1 lg:p-6 mb-6 lg:mb-0 w-full lg:w-1/2 text-right mt-5 lg:mt-0"
+          className="lg:p-6 mb-6 lg:mb-0 w-full text-right mt-5 lg:mt-0 lg:w-2/3 order-2" // lg:order-1
         >
-          <p>
+          <h1 className="text-[14px] lg:text-[24px]">
             Let&apos;s discuss with me become even greater at what you do. so
             excited to hear from you and let&apos;s start something special
             together.
             <span className="block">feel free to contact me ;)</span>
-            <span className="block mt-2">
-              Jl. H. Sena RT003 RW004, Desa Raga Jaya, Kec. Bojong Gede, 16928
+            {/* <span className="block mt-2">
               <strong className="block">
-                Kab. Bogor, West Java, Indonesia
               </strong>
-            </span>
-          </p>
+            </span> */}
+          </h1>
           <ul className="flex justify-end items-center space-x-5 mt-5 mb-5">
             {socialMedia?.map((item) => {
               return (
@@ -116,7 +114,7 @@ const Contact = ({
           </ul>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           viewport={{ once: true }}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,9 +131,9 @@ const Contact = ({
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBvup5TyX63Z9LECF2-AgzDe1cIU37sGFg&q=Jl.+H.+Sena+RT003+RW004,+Desa+Raga+Jaya,+Kec.+Bojong+Gede,Jawa+Barat"
+            src=""
           ></iframe>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
