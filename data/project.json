@@ -131,19 +131,6 @@
       "thumbHeight": 600
     },
     {
-      "title": "Ruang Raung Logo",
-      "tags": [{ "name": "Designer" }],
-      "description": "Company logo",
-      "image": "ruangraung.jpg",
-      "imageBlur": "ULLDZ,?b?0FT$SM_NqtO;Yi_WAsrFo-X#uIo",
-      "thumbnail": "ruangraung.jpg",
-      "thumbnailBlur": "LdJ1WTjGueXQn+j[bFWBYLayq}s:",
-      "width": 800,
-      "height": 375,
-      "thumbWidth": 400,
-      "thumbHeight": 200
-    },
-    {
       "title": "UIN University",
       "tags": [{ "name": "Frontend Developer" }],
       "description": "Website which introduce UIN University",
