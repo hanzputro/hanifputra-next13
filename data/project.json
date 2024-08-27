@@ -131,19 +131,6 @@
       "thumbHeight": 600
     },
     {
-      "title": "UIN University",
-      "tags": [{ "name": "Frontend Developer" }],
-      "description": "Website which introduce UIN University",
-      "image": "uin.jpg",
-      "imageBlur": "UEK_dz01xaxa009ZNG%M.S_3ozIU00~qV@NG",
-      "thumbnail": "uin.jpg",
-      "thumbnailBlur": "L6MJHytR_Mt8x]fQfkfQ_NfQ8_j?",
-      "width": 600,
-      "height": 1043,
-      "thumbWidth": 400,
-      "thumbHeight": 600
-    },
-    {
       "title": "Qpocket Landing Page",
       "tags": [{ "name": "Frontend Developer" }],
       "description": "website which introduce qpocket application",
@@ -168,19 +155,6 @@
       "height": 340,
       "thumbWidth": 400,
       "thumbHeight": 200
-    },
-    {
-      "title": "Sanica Logo",
-      "tags": [{ "name": "Designer" }],
-      "description": "Cake shop logo",
-      "image": "sanica.jpg",
-      "imageBlur": "U8Nd1?og00jE~pj[Wmj?00jY.AbF00af-;WX",
-      "thumbnail": "sanica.jpg",
-      "thumbnailBlur": "LHMG]oofDzj=t7fQWBfQDzax%Qj]",
-      "width": 700,
-      "height": 581,
-      "thumbWidth": 400,
-      "thumbHeight": 400
     },
     {
       "title": "Anjar Tanjung Profile",
