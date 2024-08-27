@@ -54,7 +54,7 @@
     },
     {
       "title": "Hino Jabotabek",
-      "tags": [{ "name": "Designer" }, { "name": "Fullstack Engineer" }],
+      "tags": [{ "name": "Designer" }, { "name": "Fullstack Developer" }],
       "description": "website which sells hino cars",
       "image": "hino-jabotabek.jpg",
       "imageBlur": "UFNAk,RP?vxu00xZNGaz=_-;9FM{~qM{%2fk",
@@ -67,7 +67,7 @@
     },
     {
       "title": "Flashads Portal",
-      "tags": [{ "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Frontend Developer" }],
       "description": "Website which show advertise from flashads",
       "image": "flashads-portal.jpg",
       "imageBlur": "UaRCi4?wb^Dh-:RkM_t6yEM_jFxuMyxukWM{",
@@ -93,7 +93,7 @@
     },
     {
       "title": "Flashads Company Profile",
-      "tags": [{ "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Frontend Developer" }],
       "description": "Website which introduce flashads company",
       "image": "flashads-compro.jpg",
       "imageBlur": "U7R{+0s;~q%ME0t7?aM{4ot7%MM{iya$-;R%",
@@ -119,7 +119,7 @@
     },
     {
       "title": "Xfloor Landing Page",
-      "tags": [{ "name": "Designer" }, { "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Designer" }, { "name": "Frontend Developer" }],
       "description": "Website which introduce xfloor application",
       "image": "xfloor.jpg",
       "imageBlur": "UJCrQMMxIo?H%2NabHxZ}AxakCRjS#Naa|s:",
@@ -131,34 +131,8 @@
       "thumbHeight": 600
     },
     {
-      "title": "Ruang Raung Logo",
-      "tags": [{ "name": "Designer" }],
-      "description": "Company logo",
-      "image": "ruangraung.jpg",
-      "imageBlur": "ULLDZ,?b?0FT$SM_NqtO;Yi_WAsrFo-X#uIo",
-      "thumbnail": "ruangraung.jpg",
-      "thumbnailBlur": "LdJ1WTjGueXQn+j[bFWBYLayq}s:",
-      "width": 800,
-      "height": 375,
-      "thumbWidth": 400,
-      "thumbHeight": 200
-    },
-    {
-      "title": "UIN University",
-      "tags": [{ "name": "Frontend Engineer" }],
-      "description": "Website which introduce UIN University",
-      "image": "uin.jpg",
-      "imageBlur": "UEK_dz01xaxa009ZNG%M.S_3ozIU00~qV@NG",
-      "thumbnail": "uin.jpg",
-      "thumbnailBlur": "L6MJHytR_Mt8x]fQfkfQ_NfQ8_j?",
-      "width": 600,
-      "height": 1043,
-      "thumbWidth": 400,
-      "thumbHeight": 600
-    },
-    {
       "title": "Qpocket Landing Page",
-      "tags": [{ "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Frontend Developer" }],
       "description": "website which introduce qpocket application",
       "image": "qpocket.jpg",
       "imageBlur": "U1OM,4~CKP0y8wv~D%FJ00Z$4nOr00xa009Z",
@@ -183,34 +157,8 @@
       "thumbHeight": 200
     },
     {
-      "title": "Bro Warkop Logo",
-      "tags": [{ "name": "Designer" }],
-      "description": "Coffee shop logo",
-      "image": "bro-warkop.jpg",
-      "imageBlur": "UAKB4@M,E29s^%o_R*R*$~WUWDR-_K--RjM{",
-      "thumbnail": "bro-warkop.jpg",
-      "thumbnailBlur": "LISW?xsk-4XA%0aeWDkC}%bJI^s7",
-      "width": 700,
-      "height": 365,
-      "thumbWidth": 400,
-      "thumbHeight": 400
-    },
-    {
-      "title": "Sanica Logo",
-      "tags": [{ "name": "Designer" }],
-      "description": "Cake shop logo",
-      "image": "sanica.jpg",
-      "imageBlur": "U8Nd1?og00jE~pj[Wmj?00jY.AbF00af-;WX",
-      "thumbnail": "sanica.jpg",
-      "thumbnailBlur": "LHMG]oofDzj=t7fQWBfQDzax%Qj]",
-      "width": 700,
-      "height": 581,
-      "thumbWidth": 400,
-      "thumbHeight": 400
-    },
-    {
       "title": "Anjar Tanjung Profile",
-      "tags": [{ "name": "Frontend Engineer" }],
+      "tags": [{ "name": "Frontend Developer" }],
       "description": "Website which introduce anjar tanjung profile",
       "image": "anjartanjung.jpg",
       "imageBlur": "UXQ9[xNH_3xb?cj?M_of_4t7IURjM_kCt7Rj",
