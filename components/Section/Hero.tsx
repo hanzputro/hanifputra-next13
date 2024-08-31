@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
+// import Spline from "@splinetool/react-spline";
 import { Andada_Pro, Inter } from "next/font/google";
 import {
   motion,
@@ -228,7 +229,7 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
         variants={frameVariants}
         animate="slide"
       >
-        <iframe
+        {/* <iframe
           className="overflow-auto"
           src="https://my.spline.design/hanifputra-91db9b440c1939db2e258a33d976743d/"
           frameBorder="0"
@@ -239,7 +240,16 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
             marginLeft: "-70px",
             marginTop: "-120px",
           }}
-        ></iframe>
+        ></iframe> */}
+        {/* <Spline
+          scene="https://prod.spline.design/6hifPTiDpKTAz3FH/scene.splinecode"
+          style={{
+            width: "700px",
+            height: "700px",
+            marginLeft: "-70px",
+            marginTop: "-120px",
+          }}
+        /> */}
       </motion.div>
     </section>
   );
