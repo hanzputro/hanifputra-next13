@@ -111,7 +111,7 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
           whileInView="whileInView"
           viewport={{ once: true }}
         >
-          <span className="inline-block text-[#FFEE00]">_</span>Skill
+          <span className="inline-block text-[#FFEE00]">_</span>Skills
         </motion.h2>
       </div>
 
