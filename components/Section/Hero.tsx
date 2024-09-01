@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
+import Spline from "@splinetool/react-spline";
 import { Andada_Pro, Inter } from "next/font/google";
 import {
   motion,
@@ -6,6 +7,7 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
+import "./style.css";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -228,18 +230,10 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
         variants={frameVariants}
         animate="slide"
       >
-        <iframe
-          className="overflow-auto"
-          src="https://my.spline.design/hanifputra-91db9b440c1939db2e258a33d976743d/"
-          frameBorder="0"
-          scrolling="yes"
-          width="700"
-          height="700"
-          style={{
-            marginLeft: "-70px",
-            marginTop: "-120px",
-          }}
-        ></iframe>
+        <Spline
+          className="spline flex justify-center"
+          scene="https://prod.spline.design/6hifPTiDpKTAz3FH/scene.splinecode"
+        />
       </motion.div>
     </section>
   );
