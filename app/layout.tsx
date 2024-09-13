@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Metadata } from "next";
 import Pwa from "@/components/Pwa";
+import { ApolloWrapper } from "@/lib/ApolloWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -70,7 +71,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Pwa />
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ApolloWrapper>{children}</ApolloWrapper>
+      </body>
     </html>
   );
 }
