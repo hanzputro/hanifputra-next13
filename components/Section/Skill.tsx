@@ -1,16 +1,11 @@
 import React, { useRef } from "react";
-import Image from "next/image";
-import { Andada_Pro, Inter } from "next/font/google";
+import { Andada_Pro } from "next/font/google";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Tooltip } from "../Tooltip";
+import { gql, useQuery } from "@apollo/client";
+import SkillList from "../SkillList";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
-  subsets: ["latin"],
-});
-
-const inter = Inter({
-  weight: ["400", "600"],
   subsets: ["latin"],
 });
 
@@ -33,8 +28,65 @@ interface SkillProps {
   currentHash: string;
 }
 
-const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
+const GET_SKILL = gql`
+  query Query {
+    homePage {
+      data {
+        attributes {
+          Skill {
+            title
+            titleShadow
+            category1
+            category2
+            design {
+              data {
+                attributes {
+                  title
+                  category
+                  image {
+                    data {
+                      attributes {
+                        name
+                        url
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            code {
+              data {
+                attributes {
+                  title
+                  category
+                  image {
+                    data {
+                      attributes {
+                        name
+                        url
+                        height
+                        width
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+const Skill = ({ setCurrentHash, currentHash }: SkillProps) => {
   const skillRef = useRef<any>(null);
+
+  const { data } = useQuery(GET_SKILL);
+
+  const skillData = data?.homePage?.data?.attributes?.Skill;
 
   const { scrollYProgress } = useScroll({
     target: skillRef,
@@ -46,9 +98,6 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
       setCurrentHash("#skill");
     }
   });
-
-  const skillDesigner = skill?.find((skill) => skill.category == "designer");
-  const skillDeveloper = skill?.find((skill) => skill.category == "developer");
 
   const titleVariants = {
     initial: { x: 70, opacity: 0 },
@@ -74,21 +123,6 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
     },
   };
 
-  const skillVariants = {
-    initial: { y: 30, opacity: 0 },
-    whileInView: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        delayChildren: 0.8,
-        staggerChildren: 0.2,
-        duration: 0.6,
-        ease: "easeInOut",
-      },
-    },
-  };
-
   return (
     <section
       ref={skillRef}
@@ -102,7 +136,7 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
           whileInView="whileInView"
           viewport={{ once: true }}
         >
-          ABILITY
+          {skillData?.titleShadow}
         </motion.h2>
         <motion.h2
           className={`${andadaPro.className} text-[40px] md:text-[50px] absolute`}
@@ -111,106 +145,17 @@ const Skill = ({ skill, setCurrentHash, currentHash }: SkillProps) => {
           whileInView="whileInView"
           viewport={{ once: true }}
         >
-          <span className="inline-block text-[#FFEE00]">_</span>Skills
+          <span className="inline-block text-[#FFEE00]">_</span>
+          {skillData?.title}
         </motion.h2>
       </div>
 
       <div className="flex flex-wrap lg:flex-nowrap text-right md:mt-12 md:space-x-4">
-        <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
-          <motion.h5
-            className={`${inter.className} text-[18px] md:text-[20px] font-semibold`}
-            viewport={{ once: true }}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-          >
-            <span className="inline-block text-[#FFEE00]">•</span> DESIGN
-          </motion.h5>
-          <motion.div
-            className="flex justify-end md:pt-3"
-            variants={skillVariants}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-          >
-            {skillDesigner?.items.map((skill, idx) => (
-              <motion.div
-                key={idx}
-                variants={{
-                  ...skillVariants,
-                  whileInView: {
-                    ...skillVariants.whileInView,
-                    transition: {
-                      ...skillVariants.whileInView.transition,
-                    },
-                  },
-                }}
-              >
-                <Tooltip text={skill.title}>
-                  <Image
-                    className="relative w-[64px] md:w-[84px]"
-                    src={`/assets/images/skill/${skill.image}`}
-                    alt={skill.title}
-                    width={skill.width}
-                    height={skill.height}
-                    priority
-                  />
-                </Tooltip>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-
-        <div className="w-full lg:w-1/2">
-          <motion.h5
-            className={`${inter.className} text-[18px] md:text-[20px] font-semibold`}
-            viewport={{ once: true }}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-          >
-            <span className="inline-block text-[#FFEE00]">•</span> CODE
-          </motion.h5>
-          <motion.div
-            className="flex justify-end flex-wrap md:pt-3"
-            variants={{
-              ...skillVariants,
-              whileInView: {
-                ...skillVariants.whileInView,
-                transition: {
-                  ...skillVariants.whileInView.transition,
-                  delay: 1,
-                },
-              },
-            }}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-          >
-            {skillDeveloper?.items.map((skill, idx) => (
-              <motion.div key={idx} variants={skillVariants}>
-                <Tooltip text={skill.title}>
-                  <Image
-                    className="relative w-[64px] md:w-[84px]"
-                    src={`/assets/images/skill/${skill.image}`}
-                    alt={skill.title}
-                    width={skill.width}
-                    height={skill.height}
-                    priority
-                  />
-                </Tooltip>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        <SkillList
+          title={skillData?.category1}
+          list={skillData?.design?.data}
+        />
+        <SkillList title={skillData?.category2} list={skillData?.code?.data} />
       </div>
     </section>
   );

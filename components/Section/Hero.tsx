@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
-import Spline from "@splinetool/react-spline";
+import React, { useRef } from "react";
 import { Andada_Pro, Inter } from "next/font/google";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { gql, useQuery } from "@apollo/client";
+import Spline from "@splinetool/react-spline";
+import Slogan from "../Slogan";
 import "./style.css";
 
 const andadaPro = Andada_Pro({
@@ -19,11 +16,36 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const GET_HERO = gql`
+  query Query {
+    homePage {
+      data {
+        attributes {
+          Home {
+            title1
+            title2
+            description
+            slogan
+            urlSpline
+            titleShadow1
+            titleShadow2
+            titleShadow3
+          }
+        }
+      }
+    }
+  }
+`;
+
 interface HeroProps {
   setCurrentHash: (value: string) => void;
   currentHash: string;
 }
 const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
+  const { data } = useQuery(GET_HERO);
+
+  const heroData = data?.homePage?.data?.attributes?.Home;
+
   const homeRef = useRef<any>(null);
 
   const { scrollYProgress } = useScroll({
@@ -36,42 +58,6 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
       setCurrentHash("");
     }
   });
-
-  const [seconds, setSeconds] = useState(0);
-  const wordArrays = useMemo(
-    () => [
-      {
-        name: "Design",
-        color:
-          "linear-gradient(60deg, rgba(255,68,111,1) 0%, rgba(255,13,13,1) 100%)",
-      },
-      {
-        name: "Codes",
-        color:
-          "linear-gradient(60deg, rgba(0,155,119,1) 0%, rgba(0,103,2,1) 100%)",
-      },
-      {
-        name: "Ideas",
-        color:
-          "linear-gradient(60deg, rgba(68,204,255,1) 0%, rgba(0,32,250,1) 100%)",
-      },
-    ],
-    []
-  );
-  const [quote, setQuote] = useState(wordArrays[2]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (seconds > 1) {
-        setSeconds(0);
-        setQuote(wordArrays[seconds]);
-      } else {
-        setSeconds((seconds: number) => seconds + 1);
-        setQuote(wordArrays[seconds]);
-      }
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [quote, seconds, wordArrays]);
 
   const tagVariants = {
     slide: {
@@ -151,7 +137,7 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
             animate="slide"
             className={`${andadaPro.className} text-[90px] md:text-[140px] lg:text-[160px] block w-full leading-[1] md:leading-[0.8] tracking-[-10px] md:tracking-[-15px] lg:tracking-[-13px] text-[#f5f5f5] md:text-[#e2e2e2] opacity-0 blur-[1px]`}
           >
-            WEBSITE
+            {heroData?.titleShadow1}
           </motion.h1>
           <motion.h1
             variants={{
@@ -167,7 +153,7 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
             animate="slide"
             className={`${andadaPro.className} text-[90px] md:text-[140px] lg:text-[160px] block w-full leading-[1] md:leading-[0.8] tracking-[-10px] md:tracking-[-15px] lg:tracking-[-13px] text-[#f5f5f5] md:text-[#e2e2e2] opacity-0 blur-[1px]`}
           >
-            APPLICATION
+            {heroData?.titleShadow2}
           </motion.h1>
           <motion.h1
             variants={{
@@ -183,7 +169,7 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
             animate="slide"
             className={`${andadaPro.className} text-[90px] md:text-[140px] lg:text-[160px] block w-full leading-[1] md:leading-[0.8] tracking-[-10px] md:tracking-[-15px] lg:tracking-[-13px] text-[#f5f5f5] md:text-[#e2e2e2] opacity-0 blur-[1px]`}
           >
-            DEVELOPER
+            {heroData?.titleShadow3}
           </motion.h1>
         </motion.div>
       </div>
@@ -195,23 +181,11 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
           animate="slide"
         >
           <span className="block">
-            Bring
-            <AnimatePresence>
-              {quote && (
-                <motion.span
-                  key={seconds}
-                  className="absolute inline-block text-white px-3 ml-3"
-                  initial={{ y: 10, opacity: 0, background: quote.color }}
-                  animate={{ y: 0, opacity: 1, background: quote.color }}
-                  exit={{ y: 10, opacity: 0, background: quote.color }}
-                  transition={{ type: "sring" }}
-                >
-                  {quote.name}
-                </motion.span>
-              )}
-            </AnimatePresence>
+            {heroData?.title1}
+            <Slogan />
           </span>
-          To Life<span className="inline-block text-[#FFEE00]">_</span>
+          {heroData?.title2}
+          <span className="inline-block text-[#FFEE00]">_</span>
         </motion.h1>
 
         <motion.p
@@ -219,9 +193,7 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
           variants={descriptionVariants}
           animate="slide"
         >
-          Hi!, call me Hanif a Web App Developer. Interactive thinker, Love
-          smooth transitions, and code solver. Crafting design, code, and
-          interactive visualization is my passion ;)
+          {heroData?.description}
         </motion.p>
       </div>
 
@@ -230,10 +202,12 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
         variants={frameVariants}
         animate="slide"
       >
-        <Spline
-          className="spline flex justify-center"
-          scene="https://prod.spline.design/6hifPTiDpKTAz3FH/scene.splinecode"
-        />
+        {heroData?.urlSpline && (
+          <Spline
+            className="spline flex justify-center"
+            scene={heroData?.urlSpline}
+          />
+        )}
       </motion.div>
     </section>
   );

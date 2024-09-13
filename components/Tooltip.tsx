@@ -52,7 +52,7 @@ export const Tooltip = ({ text, children }: TooltipProps) => {
             animate="slide"
           >
             {text}
-            <div className="absolute left-0 right-0 bottom-[-4px] mx-auto w-0 h-0 border-l-[4px] border-l-transparent border-t-[4px] border-t-black border-r-[4px] border-r-transparent" />
+            <div className="absolute left-0 right-0 bottom-[-3px] mx-auto w-0 h-0 border-l-[4px] border-l-transparent border-t-[4px] border-t-black border-r-[4px] border-r-transparent" />
           </motion.div>
         )}
       </AnimatePresence>
