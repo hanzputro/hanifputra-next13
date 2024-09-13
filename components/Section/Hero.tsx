@@ -2,7 +2,9 @@ import React, { useRef } from "react";
 import { Andada_Pro, Inter } from "next/font/google";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { gql, useQuery } from "@apollo/client";
+import Spline from "@splinetool/react-spline";
 import Slogan from "../Slogan";
+import "./style.css";
 
 const andadaPro = Andada_Pro({
   weight: ["600"],
@@ -200,18 +202,12 @@ const Hero = ({ setCurrentHash, currentHash }: HeroProps) => {
         variants={frameVariants}
         animate="slide"
       >
-        <iframe
-          className="overflow-auto"
-          src={heroData?.urlSpline}
-          frameBorder="0"
-          scrolling="yes"
-          width="700"
-          height="700"
-          style={{
-            marginLeft: "-70px",
-            marginTop: "-120px",
-          }}
-        ></iframe>
+        {heroData?.urlSpline && (
+          <Spline
+            className="spline flex justify-center"
+            scene={heroData?.urlSpline}
+          />
+        )}
       </motion.div>
     </section>
   );

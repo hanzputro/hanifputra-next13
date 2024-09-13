@@ -211,7 +211,7 @@ const Project = ({ project, setCurrentHash, currentHash }: ProjectProps) => {
             ease: "easeInOut",
           }}
         >
-          Project<span className="inline-block text-[#FFEE00]">_</span>
+          Projects<span className="inline-block text-[#FFEE00]">_</span>
         </motion.h2>
       </div>
 
